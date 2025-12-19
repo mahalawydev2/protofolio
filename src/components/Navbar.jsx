@@ -42,7 +42,7 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
           >
             <img
-              src="/img/logo2.png"
+              src="/img/logo3.png"
               alt="Mahalawy Logo"
               className="h-12 md:h-8 w-auto"
             />

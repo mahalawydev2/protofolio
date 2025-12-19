@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap');
 
 * {
-  margin: 5;
-  padding: 4;
+  margin: 1;
+  padding: 1; 
   box-sizing: border-box;
 }
 
