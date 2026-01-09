@@ -8,6 +8,20 @@ const Experience = () => {
 
   const experiences = [
     {
+      title: 'Full Stack Development Track',
+      company: 'Information Technology Institute (ITI)',
+      location: 'Intensive Training',
+      date: '09/2024 – 06/2025',
+      type: '9-Month Program',
+      description: [
+        'Completed intensive 9-month open-source training program covering full-stack web development.',
+        'Gained hands-on experience with modern frameworks, databases, and cloud technologies.',
+        'Built multiple real-world projects applying agile methodologies and best practices.',
+        'Collaborated with peers on team projects, enhancing communication and problem-solving skills.',
+      ],
+      skills: ['React', 'Node.js', 'Python', 'Django', 'PostgreSQL', 'Docker', 'AWS'],
+    },
+    {
       title: 'Software Developer Intern',
       company: "I'SUPPLY",
       location: 'Onsite',

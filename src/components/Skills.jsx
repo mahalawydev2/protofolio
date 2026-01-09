@@ -144,53 +144,7 @@ const Skills = () => {
           />
         </motion.div>
 
-        {/* Category Stats - Clean version without card-hover */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
-        >
-          {skillCategories.map((cat) => (
-            <div
-              key={cat.label}
-              className="glass rounded-xl p-5 text-center transition-all duration-300 hover:-translate-y-2"
-              style={{
-                borderColor: `${cat.color}20`,
-              }}
-            >
-              <div className="text-3xl font-bold mb-1" style={{ color: cat.color }}>
-                {cat.count}+
-              </div>
-              <p className="text-[#a1a1aa] text-sm">{cat.label}</p>
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Other Skills */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.5 }}
-          className="glass-strong rounded-2xl p-6 md:p-8"
-        >
-          <h3 className="text-lg font-semibold text-white text-center mb-6">
-            Also Experienced With
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3">
-            {otherSkills.map((skill, index) => (
-              <motion.span
-                key={skill}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ delay: 0.6 + index * 0.03 }}
-                className="px-4 py-2 rounded-lg bg-white/5 text-[#a1a1aa] text-sm hover:text-[#3b82f6] hover:bg-[#3b82f6]/10 transition-all cursor-default border border-transparent hover:border-[#3b82f6]/30"
-              >
-                {skill}
-              </motion.span>
-            ))}
-          </div>
-        </motion.div>
+       
       </div>
     </section>
   );
