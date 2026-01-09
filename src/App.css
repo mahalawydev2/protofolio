@@ -76,18 +76,18 @@ body {
 
 /* Section Styles */
 .section-padding {
-  padding: 120px 24px;
+  padding: 64px 24px;
 }
 
 @media (min-width: 768px) {
   .section-padding {
-    padding: 160px 48px;
+    padding: 80px 48px;
   }
 }
 
 @media (min-width: 1024px) {
   .section-padding {
-    padding: 180px 64px;
+    padding: 96px 64px;
   }
 }
 

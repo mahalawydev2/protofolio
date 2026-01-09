@@ -15,7 +15,7 @@ const Contact = () => {
   return (
     <section 
       id="contact" 
-      className="py-24 md:py-32 px-6 bg-[#0a0a0a] relative overflow-hidden" 
+      className="py-16 md:py-20 px-6 bg-[#0a0a0a] relative overflow-hidden" 
       ref={ref}
     >
       {/* Background Elements */}
@@ -34,16 +34,16 @@ const Contact = () => {
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 mb-8"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 mb-4"
           >
             <FaPaperPlane className="text-[#3b82f6] text-sm" />
             <span className="text-[#3b82f6] font-mono text-sm tracking-wider">CONTACT</span>
           </motion.div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
             Get In <span className="gradient-text">Touch</span>
           </h2>
-          <p className="text-[#a1a1aa] text-lg md:text-xl max-w-xl mx-auto mb-12">
+          <p className="text-[#a1a1aa] text-lg max-w-xl mx-auto mb-8">
             I'm currently open to internships and junior roles. Feel free to reach out!
           </p>
 
@@ -52,7 +52,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="flex justify-center gap-6"
+            className="flex justify-center gap-5"
           >
             {socialLinks.map((social) => (
               <motion.a
@@ -60,11 +60,11 @@ const Contact = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -8, scale: 1.1 }}
+                whileHover={{ y: -6, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center text-[#a1a1aa] hover:text-[#3b82f6] hover:bg-[#3b82f6]/10 transition-all border border-white/10 hover:border-[#3b82f6]/30"
+                className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-[#a1a1aa] hover:text-[#3b82f6] hover:bg-[#3b82f6]/10 transition-all border border-white/10 hover:border-[#3b82f6]/30"
               >
-                <span className="text-2xl">{social.icon}</span>
+                <span className="text-xl">{social.icon}</span>
               </motion.a>
             ))}
           </motion.div>

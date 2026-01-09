@@ -8,7 +8,7 @@ const About = () => {
   return (
     <section 
       id="about" 
-      className="py-24 md:py-32 px-6 bg-[#0f0f0f] relative overflow-hidden" 
+      className="py-16 md:py-20 px-6 bg-[#0f0f0f] relative overflow-hidden" 
       ref={ref}
     >
       {/* Background */}
@@ -21,9 +21,9 @@ const About = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[#3b82f6] font-mono text-sm mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[#3b82f6] font-mono text-sm mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] animate-pulse" />
             ABOUT
           </span>
@@ -37,7 +37,7 @@ const About = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="glass-strong rounded-3xl p-8 md:p-12 text-center"
+          className="glass-strong rounded-3xl p-6 md:p-10 text-center"
         >
           <p className="text-[#a1a1aa] text-lg md:text-xl leading-relaxed">
             I'm <span className="text-white font-semibold">Abdelrahman S. Ahmed</span>, a Computer Engineering student at Ain Shams University, 

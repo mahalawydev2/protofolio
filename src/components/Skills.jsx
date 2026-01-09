@@ -53,30 +53,10 @@ const Skills = () => {
     { node: <SiCss3 style={{ color: '#1572B6' }} />, title: 'CSS3' },
   ];
 
-  const otherSkills = [
-    'Bootstrap',
-    'Tailwind CSS',
-    'Express.js',
-    'REST APIs',
-    'GraphQL',
-    'Redis',
-    'FreeRTOS',
-    'Selenium',
-    'Jira',
-    'VS Code',
-  ];
-
-  const skillCategories = [
-    { label: 'Languages', count: 6, color: '#3b82f6' },
-    { label: 'Frontend', count: 5, color: '#06b6d4' },
-    { label: 'Backend', count: 5, color: '#10b981' },
-    { label: 'DevOps', count: 6, color: '#8b5cf6' },
-  ];
-
   return (
     <section
       id="skills"
-      className="py-24 md:py-32 px-6 bg-[#0a0a0a] relative overflow-hidden"
+      className="py-16 md:py-20 px-6 bg-[#0a0a0a] relative overflow-hidden"
       ref={ref}
     >
       {/* Background */}
@@ -88,13 +68,13 @@ const Skills = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-10"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[#3b82f6] font-mono text-sm mb-6">
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[#3b82f6] font-mono text-sm mb-4">
             <FaCode className="text-sm" />
             SKILLS
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
             Tech <span className="gradient-text">Stack</span>
           </h2>
           <p className="text-[#a1a1aa] text-lg max-w-xl mx-auto">
@@ -107,7 +87,7 @@ const Skills = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-8 overflow-hidden"
+          className="mb-6 overflow-hidden"
         >
           <LogoLoop
             logos={primarySkills}
@@ -119,7 +99,7 @@ const Skills = () => {
             fadeOut={true}
             fadeOutColor="#0a0a0a"
             scaleOnHover={true}
-            className="py-6"
+            className="py-4"
           />
         </motion.div>
 
@@ -128,7 +108,7 @@ const Skills = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mb-16 overflow-hidden"
+          className="overflow-hidden"
         >
           <LogoLoop
             logos={secondarySkills}
@@ -143,8 +123,6 @@ const Skills = () => {
             className="py-4"
           />
         </motion.div>
-
-       
       </div>
     </section>
   );
