@@ -1,94 +1,194 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
-  SiPython, SiCplusplus, SiJavascript, SiHtml5, SiCss3,
-  SiNodedotjs, SiDocker, SiKubernetes, SiTerraform, SiGit,
-  SiPostman, SiFirebase, SiFlutter
+  SiPython,
+  SiCplusplus,
+  SiJavascript,
+  SiHtml5,
+  SiCss3,
+  SiNodedotjs,
+  SiDocker,
+  SiKubernetes,
+  SiTerraform,
+  SiGit,
+  SiPostman,
+  SiFirebase,
+  SiFlutter,
+  SiReact,
+  SiMongodb,
+  SiMysql,
+  SiLinux,
+  SiTypescript,
 } from 'react-icons/si';
-import { FaJava, FaDatabase } from 'react-icons/fa';
+import { FaJava, FaAws, FaCode } from 'react-icons/fa';
+import LogoLoop from './LogoLoop';
 
 const Skills = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
-  const skills = [
-    { name: 'Python', icon: <SiPython />, color: '#3776AB' },
-    { name: 'C/C++', icon: <SiCplusplus />, color: '#00599C' },
-    { name: 'Java', icon: <FaJava />, color: '#ED8B00' },
-    { name: 'JavaScript', icon: <SiJavascript />, color: '#F7DF1E' },
-    { name: 'SQL', icon: <FaDatabase />, color: '#4479A1' },
-    { name: 'HTML5', icon: <SiHtml5 />, color: '#E34F26' },
-    { name: 'CSS3', icon: <SiCss3 />, color: '#1572B6' },
-    { name: 'Node.js', icon: <SiNodedotjs />, color: '#339933' },
-    { name: 'Docker', icon: <SiDocker />, color: '#2496ED' },
-    { name: 'Kubernetes', icon: <SiKubernetes />, color: '#326CE5' },
-    { name: 'Terraform', icon: <SiTerraform />, color: '#7B42BC' },
-    { name: 'Git', icon: <SiGit />, color: '#F05032' },
-    { name: 'Postman', icon: <SiPostman />, color: '#FF6C37' },
-    { name: 'Flutter', icon: <SiFlutter />, color: '#02569B' },
-    { name: 'Firebase', icon: <SiFirebase />, color: '#FFCA28' },
+  const primarySkills = [
+    { node: <SiPython style={{ color: '#3776AB' }} />, title: 'Python' },
+    { node: <SiJavascript style={{ color: '#F7DF1E' }} />, title: 'JavaScript' },
+    { node: <SiReact style={{ color: '#61DAFB' }} />, title: 'React' },
+    { node: <SiNodedotjs style={{ color: '#339933' }} />, title: 'Node.js' },
+    { node: <SiTypescript style={{ color: '#3178C6' }} />, title: 'TypeScript' },
+    { node: <SiDocker style={{ color: '#2496ED' }} />, title: 'Docker' },
+    { node: <SiKubernetes style={{ color: '#326CE5' }} />, title: 'Kubernetes' },
+    { node: <FaAws style={{ color: '#FF9900' }} />, title: 'AWS' },
+    { node: <SiMongodb style={{ color: '#47A248' }} />, title: 'MongoDB' },
+    { node: <SiGit style={{ color: '#F05032' }} />, title: 'Git' },
+  ];
+
+  const secondarySkills = [
+    { node: <SiCplusplus style={{ color: '#00599C' }} />, title: 'C/C++' },
+    { node: <FaJava style={{ color: '#ED8B00' }} />, title: 'Java' },
+    { node: <SiFlutter style={{ color: '#02569B' }} />, title: 'Flutter' },
+    { node: <SiFirebase style={{ color: '#FFCA28' }} />, title: 'Firebase' },
+    { node: <SiMysql style={{ color: '#4479A1' }} />, title: 'MySQL' },
+    { node: <SiTerraform style={{ color: '#7B42BC' }} />, title: 'Terraform' },
+    { node: <SiLinux style={{ color: '#FCC624' }} />, title: 'Linux' },
+    { node: <SiPostman style={{ color: '#FF6C37' }} />, title: 'Postman' },
+    { node: <SiHtml5 style={{ color: '#E34F26' }} />, title: 'HTML5' },
+    { node: <SiCss3 style={{ color: '#1572B6' }} />, title: 'CSS3' },
   ];
 
   const otherSkills = [
-    'Bootstrap', 'FreeRTOS', 'IAR Embedded Workbench', 'Keil 5',
-    'VS Code', 'Jira', 'Eclipse', 'Lua', 'AWS', 'MySQL'
+    'Bootstrap',
+    'Tailwind CSS',
+    'Express.js',
+    'REST APIs',
+    'GraphQL',
+    'Redis',
+    'FreeRTOS',
+    'Selenium',
+    'Jira',
+    'VS Code',
+  ];
+
+  const skillCategories = [
+    { label: 'Languages', count: 6, color: '#3b82f6' },
+    { label: 'Frontend', count: 5, color: '#06b6d4' },
+    { label: 'Backend', count: 5, color: '#10b981' },
+    { label: 'DevOps', count: 6, color: '#8b5cf6' },
   ];
 
   return (
-    <section id="skills" className="section-padding bg-[#0a0a0a]" ref={ref}>
-      <div className="section-container">
+    <section
+      id="skills"
+      className="py-24 md:py-32 px-6 bg-[#0a0a0a] relative overflow-hidden"
+      ref={ref}
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-dots opacity-20" />
+
+      <div className="max-w-6xl mx-auto relative z-10 overflow-hidden">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
+          className="text-center mb-16"
         >
-          {/* Section Title - Centered */}
-          <div className="text-center mb-20">
-            <p className="text-[#3b82f6] font-mono mb-5 text-lg">04. Skills</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Technologies I Work With</h2>
-          </div>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[#3b82f6] font-mono text-sm mb-6">
+            <FaCode className="text-sm" />
+            SKILLS
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+            Tech <span className="gradient-text">Stack</span>
+          </h2>
+          <p className="text-[#a1a1aa] text-lg max-w-xl mx-auto">
+            Technologies I use to bring ideas to life
+          </p>
+        </motion.div>
 
-          {/* Skills Grid - Centered */}
-          <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-6 mb-20">
-              {skills.map((skill, index) => (
-                <motion.div
-                  key={skill.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="glass rounded-2xl p-6 md:p-8 flex flex-col items-center justify-center gap-5 card-hover group cursor-pointer aspect-square"
-                >
-                  <div
-                    className="text-4xl md:text-5xl lg:text-6xl transition-all duration-300 group-hover:scale-110"
-                    style={{ color: skill.color }}
-                  >
-                    {skill.icon}
-                  </div>
-                  <span className="text-sm md:text-base lg:text-lg text-[#a1a1aa] group-hover:text-white transition-colors text-center font-medium">
-                    {skill.name}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
+        {/* Primary Skills Loop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mb-8 overflow-hidden"
+        >
+          <LogoLoop
+            logos={primarySkills}
+            speed={80}
+            direction="left"
+            logoHeight={48}
+            gap={64}
+            hoverSpeed={20}
+            fadeOut={true}
+            fadeOutColor="#0a0a0a"
+            scaleOnHover={true}
+            className="py-6"
+          />
+        </motion.div>
 
-            {/* Other Skills - Centered */}
-            <div className="text-center">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-10">Other Technologies</h3>
-              <div className="flex flex-wrap justify-center gap-5">
-                {otherSkills.map((skill, index) => (
-                  <motion.span
-                    key={skill}
-                    initial={{ opacity: 0 }}
-                    animate={isInView ? { opacity: 1 } : {}}
-                    transition={{ delay: 0.5 + index * 0.05 }}
-                    className="px-8 py-4 glass rounded-full text-base md:text-lg text-[#a1a1aa] hover:text-[#3b82f6] hover:border-[#3b82f6] transition-all cursor-default"
-                  >
-                    {skill}
-                  </motion.span>
-                ))}
+        {/* Secondary Skills Loop */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-16 overflow-hidden"
+        >
+          <LogoLoop
+            logos={secondarySkills}
+            speed={60}
+            direction="right"
+            logoHeight={40}
+            gap={56}
+            hoverSpeed={15}
+            fadeOut={true}
+            fadeOutColor="#0a0a0a"
+            scaleOnHover={true}
+            className="py-4"
+          />
+        </motion.div>
+
+        {/* Category Stats - Clean version without card-hover */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12"
+        >
+          {skillCategories.map((cat) => (
+            <div
+              key={cat.label}
+              className="glass rounded-xl p-5 text-center transition-all duration-300 hover:-translate-y-2"
+              style={{
+                borderColor: `${cat.color}20`,
+              }}
+            >
+              <div className="text-3xl font-bold mb-1" style={{ color: cat.color }}>
+                {cat.count}+
               </div>
+              <p className="text-[#a1a1aa] text-sm">{cat.label}</p>
             </div>
+          ))}
+        </motion.div>
+
+        {/* Other Skills */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.5 }}
+          className="glass-strong rounded-2xl p-6 md:p-8"
+        >
+          <h3 className="text-lg font-semibold text-white text-center mb-6">
+            Also Experienced With
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3">
+            {otherSkills.map((skill, index) => (
+              <motion.span
+                key={skill}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.6 + index * 0.03 }}
+                className="px-4 py-2 rounded-lg bg-white/5 text-[#a1a1aa] text-sm hover:text-[#3b82f6] hover:bg-[#3b82f6]/10 transition-all cursor-default border border-transparent hover:border-[#3b82f6]/30"
+              >
+                {skill}
+              </motion.span>
+            ))}
           </div>
         </motion.div>
       </div>

@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
+
+import Cursor from './components/Cursor';
+import ClickSpark from './components/ClickSpark';
 import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -14,13 +17,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleLoadingComplete = () => {
-    // Small delay after progress bar completes
     setTimeout(() => {
       setIsLoading(false);
     }, 300);
   };
 
-  // Prevent scrolling while loading
   useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = 'hidden';
@@ -33,35 +34,49 @@ function App() {
     };
   }, [isLoading]);
 
-  return (
-    <>
-      <AnimatePresence mode="wait">
-        {isLoading && (
-          <Loader key="loader" onLoadingComplete={handleLoadingComplete} />
-        )}
-      </AnimatePresence>
+ return (
+  <>
+    {/* Cursor - highest z-index */}
+    <Cursor />
 
-      <motion.div
-        className="bg-[#0a0a0a] min-h-screen"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isLoading ? 0 : 1 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        {!isLoading && (
-          <>
+    <AnimatePresence mode="wait">
+      {isLoading && (
+        <Loader key="loader" onLoadingComplete={handleLoadingComplete} />
+      )}
+    </AnimatePresence>
+
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: isLoading ? 0 : 1 }}
+      transition={{ duration: 0.5, delay: 0.2 }}
+    >
+      {!isLoading && (
+        <ClickSpark
+          sparkColor="#3b82f6"
+          sparkSize={12}
+          sparkRadius={20}
+          sparkCount={10}
+          duration={500}
+          easing="ease-out"
+          extraScale={1.2}
+        >
+          <div className="bg-[#0a0a0a] min-h-screen">
             <Navbar />
-            <Hero />
-            <About />
-            <Experience />
-            <Projects />
-            <Skills />
-            <Contact />
+            <main>
+              <Hero />
+              <About />
+              <Experience />
+              <Projects />
+              <Skills />
+              <Contact />
+            </main>
             <Footer />
-          </>
-        )}
-      </motion.div>
-    </>
-  );
+          </div>
+        </ClickSpark>
+      )}
+    </motion.div>
+  </>
+);
 }
 
 export default App;

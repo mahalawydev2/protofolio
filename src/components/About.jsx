@@ -1,109 +1,108 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaGraduationCap, FaCode, FaRocket } from 'react-icons/fa';
+import { FaGraduationCap, FaCode, FaRocket, FaMapMarkerAlt } from 'react-icons/fa';
 
 const About = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const highlights = [
-    {
-      icon: <FaGraduationCap />,
-      title: 'Education',
-      description: 'B.Sc. in Computer Engineering from Ain Shams University',
-    },
-    {
-      icon: <FaCode />,
-      title: 'Specialization',
-      description: 'Distributed Computing & Software Product Lines',
-    },
-    {
-      icon: <FaRocket />,
-      title: 'Focus',
-      description: 'Full Stack Development & Cloud Architecture',
-    },
+    { icon: <FaGraduationCap />, label: 'B.Sc. Computer Engineering', color: '#3b82f6' },
+    { icon: <FaCode />, label: 'Distributed Computing', color: '#8b5cf6' },
+    { icon: <FaRocket />, label: 'Full Stack Developer', color: '#06b6d4' },
+    { icon: <FaMapMarkerAlt />, label: 'Cairo, Egypt', color: '#10b981' },
   ];
 
   return (
-    <section id="about" className="section-padding bg-[#171717]" ref={ref}>
-      <div className="section-container">
+    <section 
+      id="about" 
+      className="py-24 md:py-32 px-6 bg-[#0f0f0f] relative overflow-hidden" 
+      ref={ref}
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-grid opacity-20" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-[#3b82f6]/5 rounded-full blur-3xl" />
+
+      <div className="max-w-5xl mx-auto relative z-10">
+        {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5 }}
+          className="text-center mb-12"
         >
-          {/* Section Title - Centered */}
-          <div className="text-center mb-20">
-            <p className="text-[#3b82f6] font-mono mb-5 text-lg">01. About Me</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Who I Am</h2>
-          </div>
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[#3b82f6] font-mono text-sm mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#3b82f6] animate-pulse" />
+            ABOUT
+          </span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white">
+            Who I <span className="gradient-text">Am</span>
+          </h2>
+        </motion.div>
 
-          {/* Content Grid - Centered */}
-          <div className="grid lg:grid-cols-2 gap-16 items-start max-w-5xl mx-auto">
-            {/* Text Content */}
-            <div className="space-y-8">
-              <p className="text-[#a1a1aa] text-lg md:text-xl leading-relaxed">
-                I'm a <span className="text-white font-semibold">Computer Engineering student</span> at 
-                Ain Shams University, passionate about building scalable and efficient software solutions. 
-                My journey in tech started with curiosity about how things work, and evolved into a 
-                deep passion for creating impactful digital experiences.
-              </p>
-              <p className="text-[#a1a1aa] text-lg md:text-xl leading-relaxed">
-                With a major in <span className="text-white font-semibold">Distributed Computing</span> and 
-                a minor in <span className="text-white font-semibold">Software Product Lines</span>, I specialize 
-                in designing systems that scale. From microservices architectures to cloud deployments, 
-                I enjoy tackling complex problems and turning them into elegant solutions.
-              </p>
-              <p className="text-[#a1a1aa] text-lg md:text-xl leading-relaxed">
-                When I'm not coding, you can find me exploring new technologies, contributing to 
-                open-source projects, or learning about the latest trends in cloud computing and DevOps.
-              </p>
+        {/* Main Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="glass-strong rounded-3xl p-8 md:p-10"
+        >
+          <div className="flex flex-col lg:flex-row gap-8 items-center">
+            {/* Avatar */}
+            <div className="flex-shrink-0">
+              <div className="w-28 h-28 rounded-2xl bg-gradient-to-br from-[#3b82f6] to-purple-500 flex items-center justify-center relative">
+                <span className="text-4xl font-bold text-white">A</span>
+                <div className="absolute -bottom-1 -right-1 w-6 h-6 rounded-full bg-green-500 border-3 border-[#0f0f0f]" />
+              </div>
             </div>
 
-            {/* Highlights Grid */}
-            <div className="space-y-6">
-              {highlights.map((item, index) => (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className="glass rounded-2xl p-8 card-hover"
-                >
-                  <div className="flex items-start gap-6">
-                    <div className="text-3xl text-[#3b82f6] p-5 bg-[#3b82f6]/10 rounded-xl">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-white font-bold text-xl md:text-2xl mb-3">
-                        {item.title}
-                      </h3>
-                      <p className="text-[#a1a1aa] text-base md:text-lg">
-                        {item.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+            {/* Text */}
+            <div className="flex-1 text-center lg:text-left">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
+                Abdelrahman S. Ahmed
+              </h3>
+              <p className="text-[#3b82f6] font-medium mb-4">
+                Computer Engineering Student @ Ain Shams University
+              </p>
+              <p className="text-[#a1a1aa] leading-relaxed">
+                Passionate about building scalable software solutions. Specializing in 
+                <span className="text-white"> Distributed Computing</span> and 
+                <span className="text-white"> Software Product Lines</span>. 
+                I love tackling complex problems and turning them into elegant, efficient solutions.
+              </p>
+            </div>
+          </div>
 
-              {/* Education Card */}
+          {/* Highlights */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-white/10">
+            {highlights.map((item, index) => (
               <motion.div
-                initial={{ opacity: 0, x: 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="glass rounded-2xl p-8 border border-[#3b82f6]/30"
+                key={item.label}
+                initial={{ opacity: 0, y: 10 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.3 + index * 0.1 }}
+                className="flex items-center gap-3 p-3 rounded-xl bg-white/5"
               >
-                <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-white font-bold text-xl md:text-2xl">Ain Shams University</h3>
-                  <span className="text-[#3b82f6] font-mono px-5 py-2 bg-[#3b82f6]/10 rounded-full">
-                    06/2025
-                  </span>
-                </div>
-                <p className="text-[#a1a1aa] text-lg">Faculty of Engineering (CESS)</p>
-                <p className="text-[#60a5fa] text-lg mt-2">Expected Graduation</p>
+                <span className="text-xl" style={{ color: item.color }}>{item.icon}</span>
+                <span className="text-sm text-[#a1a1aa]">{item.label}</span>
               </motion.div>
-            </div>
+            ))}
           </div>
+
+          {/* Education Badge */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ delay: 0.6 }}
+            className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3"
+          >
+            <span className="px-4 py-2 rounded-lg bg-[#3b82f6]/10 text-[#3b82f6] text-sm border border-[#3b82f6]/20">
+              Expected Graduation: June 2025
+            </span>
+            <span className="px-4 py-2 rounded-lg bg-purple-500/10 text-purple-400 text-sm border border-purple-500/20">
+              Major: Distributed Computing
+            </span>
+          </motion.div>
         </motion.div>
       </div>
     </section>

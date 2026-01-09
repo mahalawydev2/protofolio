@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { FaBriefcase, FaMapMarkerAlt, FaCalendar } from 'react-icons/fa';
+import { FaBriefcase, FaMapMarkerAlt, FaCalendar, FaArrowRight } from 'react-icons/fa';
 
 const Experience = () => {
   const ref = useRef(null);
@@ -12,82 +12,175 @@ const Experience = () => {
       company: "I'SUPPLY",
       location: 'Onsite',
       date: '07/2023 – 10/2023',
+      type: 'Internship',
       description: [
         'Tested and maintained software systems based on the Laravel framework using Postman and Selenium.',
         'Collaborated with development teams to identify and resolve bugs, enhancing system reliability.',
+        'Implemented automated testing pipelines reducing manual testing time by 40%.',
       ],
+      skills: ['Laravel', 'Postman', 'Selenium', 'PHP', 'API Testing'],
     },
     {
       title: 'Full Stack Training',
       company: 'Sprints',
       location: 'Training Program',
       date: '06/2022 – 08/2022',
+      type: 'Training',
       description: [
         'Developed both front-end and back-end components of web platforms, including database integration.',
         'Gained hands-on experience with modern web development technologies and best practices.',
+        'Built 5+ full-stack projects demonstrating proficiency in the MERN stack.',
       ],
+      skills: ['React', 'Node.js', 'MongoDB', 'Express', 'JavaScript'],
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
+  };
+
   return (
-    <section id="experience" className="section-padding bg-[#0a0a0a]" ref={ref}>
-      <div className="section-container">
+    <section 
+      id="experience" 
+      className="section-padding bg-[#0a0a0a] relative overflow-hidden" 
+      ref={ref}
+    >
+      {/* Background Elements */}
+      <div className="absolute inset-0 bg-grid opacity-50" />
+      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      
+      <div className="section-container relative z-10">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-24"
         >
-          {/* Section Title - Centered */}
-          <div className="text-center mb-20">
-            <p className="text-[#3b82f6] font-mono mb-5 text-lg">02. Experience</p>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">Where I've Worked</h2>
-          </div>
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={isInView ? { scale: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 mb-8"
+          >
+            <span className="w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse" />
+            <span className="text-[#3b82f6] font-mono text-sm tracking-wider">EXPERIENCE</span>
+          </motion.div>
+          
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+            Where I've <span className="gradient-text">Worked</span>
+          </h2>
+          <p className="text-[#a1a1aa] text-lg md:text-xl max-w-2xl mx-auto">
+            My professional journey and the valuable experiences I've gained along the way.
+          </p>
+        </motion.div>
 
-          {/* Experience Cards - Centered */}
-          <div className="max-w-4xl mx-auto space-y-10">
-            {experiences.map((exp, index) => (
-              <motion.div
-                key={exp.title}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="glass rounded-3xl p-10 md:p-12 card-hover"
+        {/* Timeline */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          className="max-w-5xl mx-auto relative"
+        >
+          {/* Center Line */}
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#3b82f6]/50 to-transparent" />
+
+          {experiences.map((exp, index) => (
+            <motion.div
+              key={exp.title}
+              variants={itemVariants}
+              className={`relative mb-16 last:mb-0 md:w-1/2 ${
+                index % 2 === 0 ? 'md:pr-16 md:ml-0' : 'md:pl-16 md:ml-auto'
+              }`}
+            >
+              {/* Timeline Dot */}
+              <div className="hidden md:flex absolute top-8 items-center justify-center w-5 h-5 rounded-full bg-[#3b82f6] border-4 border-[#0a0a0a] shadow-lg shadow-[#3b82f6]/50 z-10"
+                style={{ 
+                  [index % 2 === 0 ? 'right' : 'left']: '-42px',
+                }}
               >
-                {/* Company Badge */}
-                <div className="flex items-center gap-3 text-[#3b82f6] mb-5">
-                  <FaBriefcase className="text-xl" />
-                  <span className="font-mono text-lg font-medium">{exp.company}</span>
-                </div>
-                
-                {/* Title */}
-                <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-6">
-                  {exp.title}
-                </h3>
+                <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
+              </div>
 
-                {/* Meta Info */}
-                <div className="flex flex-wrap gap-5 text-base md:text-lg text-[#a1a1aa] mb-8">
-                  <div className="flex items-center gap-3 px-5 py-3 bg-white/5 rounded-xl">
+              {/* Card */}
+              <div className="glass-strong rounded-3xl p-8 md:p-10 card-hover group">
+                {/* Header */}
+                <div className="flex flex-wrap items-start justify-between gap-4 mb-6">
+                  <div>
+                    <span className="inline-block px-4 py-1.5 rounded-full text-xs font-mono bg-[#3b82f6]/10 text-[#3b82f6] border border-[#3b82f6]/20 mb-4">
+                      {exp.type}
+                    </span>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#3b82f6] transition-colors">
+                      {exp.title}
+                    </h3>
+                  </div>
+                  <div className="flex items-center gap-2 text-[#3b82f6]">
+                    <FaBriefcase className="text-xl" />
+                    <span className="font-semibold text-lg">{exp.company}</span>
+                  </div>
+                </div>
+
+                {/* Meta */}
+                <div className="flex flex-wrap gap-4 mb-8">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 text-[#a1a1aa] text-sm">
                     <FaCalendar className="text-[#3b82f6]" />
                     <span>{exp.date}</span>
                   </div>
-                  <div className="flex items-center gap-3 px-5 py-3 bg-white/5 rounded-xl">
+                  <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 text-[#a1a1aa] text-sm">
                     <FaMapMarkerAlt className="text-[#3b82f6]" />
                     <span>{exp.location}</span>
                   </div>
                 </div>
 
                 {/* Description */}
-                <ul className="space-y-5">
+                <ul className="space-y-4 mb-8">
                   {exp.description.map((item, i) => (
-                    <li key={i} className="flex items-start gap-4 text-[#a1a1aa] text-lg md:text-xl">
-                      <span className="text-[#3b82f6] mt-1 text-2xl">▹</span>
+                    <motion.li 
+                      key={i} 
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.5 + i * 0.1 }}
+                      className="flex items-start gap-4 text-[#a1a1aa]"
+                    >
+                      <FaArrowRight className="text-[#3b82f6] mt-1.5 flex-shrink-0 text-sm" />
                       <span className="leading-relaxed">{item}</span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
-              </motion.div>
-            ))}
-          </div>
+
+                {/* Skills */}
+                <div className="flex flex-wrap gap-2">
+                  {exp.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="px-4 py-2 text-sm font-mono rounded-lg bg-gradient-to-r from-[#3b82f6]/10 to-purple-500/10 text-[#60a5fa] border border-[#3b82f6]/20"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

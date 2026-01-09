@@ -44,7 +44,7 @@ const Navbar = () => {
             <img
               src="/img/logo3.png"
               alt="Mahalawy Logo"
-              className="h-12 md:h-8 w-auto"
+              className="h-12 md:h-12 w-auto"
             />
           </motion.a>
 
