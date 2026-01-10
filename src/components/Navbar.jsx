@@ -1,117 +1,123 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useCallback, useMemo } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
+import useThrottledScroll from '@/hooks/useThrottledScroll';
+import useReducedMotion from '@/hooks/useReducedMotion';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const scrolled = useThrottledScroll(50, 100);
+  const prefersReducedMotion = useReducedMotion();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const toggleMenu = useCallback(() => setIsOpen(prev => !prev), []);
+  const closeMenu = useCallback(() => setIsOpen(false), []);
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Experience', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Skills', href: '#skills' },
     { name: 'Contact', href: '#contact' },
-  ];
+  ], []);
+
+  const animationConfig = useMemo(() => ({
+    initial: prefersReducedMotion ? {} : { y: -100 },
+    animate: { y: 0 },
+    transition: { duration: prefersReducedMotion ? 0 : 0.3 }
+  }), [prefersReducedMotion]);
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      {...animationConfig}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         scrolled ? 'glass shadow-lg' : 'bg-transparent'
       }`}
     >
-      {/* Full width container - edge to edge */}
       <div className="w-full px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
-          {/* Logo - Left edge */}
+          {/* Logo */}
           <motion.a
             href="#home"
             className="flex items-center"
-            whileHover={{ scale: 1.05 }}
+            whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
           >
             <img
               src="/img/logo3.png"
               alt="Mahalawy Logo"
-              className="h-12 md:h-12 w-auto"
+              className="h-12 w-auto"
+              loading="eager"
+              decoding="async"
             />
           </motion.a>
 
-          {/* Desktop Menu - Right aligned */}
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item, index) => (
               <motion.a
                 key={item.name}
                 href={item.href}
-                className="text-[#a1a1aa] hover:text-white transition-colors duration-300 whitespace-nowrap text-base"
-                initial={{ opacity: 0, y: -20 }}
+                className="text-[#a1a1aa] hover:text-[#F9ED69] transition-colors duration-150 text-base"
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: -15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05, duration: 0.2 }}
               >
                 {item.name}
               </motion.a>
             ))}
             <motion.a
               href="/resume.pdf"
-              className="px-8 py-3 bg-[#3b82f6] text-white rounded-xl font-semibold hover:bg-blue-600 transition-all duration-300 whitespace-nowrap text-base"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="px-8 py-3 bg-gradient-to-r from-[#F08A5D] to-[#B83B5E] text-white rounded-xl font-semibold hover:from-[#B83B5E] hover:to-[#6A2C70] transition-all duration-200 text-base"
+              whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
             >
               Resume
             </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-white text-3xl p-2"
-            >
-              {isOpen ? <HiX /> : <HiMenuAlt3 />}
-            </button>
-          </div>
+          <button
+            onClick={toggleMenu}
+            className="md:hidden text-white text-3xl p-2"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <HiX /> : <HiMenuAlt3 />}
+          </button>
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass rounded-2xl mt-2 p-6 mb-4"
-          >
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="block py-4 text-lg text-[#a1a1aa] hover:text-white transition-colors border-b border-white/10 last:border-0"
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-            <a
-              href="/resume.pdf"
-              className="block mt-6 px-8 py-4 bg-[#3b82f6] text-white rounded-xl text-center font-semibold text-lg"
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.2 }}
+              className="md:hidden glass rounded-2xl mt-2 p-6 mb-4 overflow-hidden"
             >
-              Resume
-            </a>
-          </motion.div>
-        )}
+              {navItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="block py-4 text-lg text-[#a1a1aa] hover:text-[#F9ED69] transition-colors duration-150 border-b border-white/10 last:border-0"
+                  onClick={closeMenu}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <a
+                href="/resume.pdf"
+                className="block mt-6 px-8 py-4 bg-gradient-to-r from-[#F08A5D] to-[#B83B5E] text-white rounded-xl text-center font-semibold text-lg"
+                onClick={closeMenu}
+              >
+                Resume
+              </a>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
 };
 
-export default Navbar;
+export default React.memo(Navbar);

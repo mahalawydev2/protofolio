@@ -79,8 +79,8 @@ const Experience = () => {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid opacity-50" />
-      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[#B83B5E]/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-[#F9ED69]/10 rounded-full blur-3xl" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
@@ -94,10 +94,10 @@ const Experience = () => {
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#B83B5E]/10 border border-[#B83B5E]/20 mb-4"
           >
-            <span className="w-2 h-2 rounded-full bg-[#3b82f6] animate-pulse" />
-            <span className="text-[#3b82f6] font-mono text-sm tracking-wider">EXPERIENCE</span>
+            <span className="w-2 h-2 rounded-full bg-[#F9ED69] animate-pulse" />
+            <span className="text-[#F08A5D] font-mono text-sm tracking-wider">EXPERIENCE</span>
           </motion.div>
           
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -116,7 +116,7 @@ const Experience = () => {
           className="max-w-5xl mx-auto relative"
         >
           {/* Center Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#3b82f6]/50 to-transparent" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#F08A5D]/50 to-transparent" />
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -127,12 +127,13 @@ const Experience = () => {
               }`}
             >
               {/* Timeline Dot */}
-              <div className="hidden md:flex absolute top-6 items-center justify-center w-4 h-4 rounded-full bg-[#3b82f6] border-4 border-[#0a0a0a] shadow-lg shadow-[#3b82f6]/50 z-10"
+                            {/* Timeline Dot */}
+              <div className="hidden md:flex absolute top-6 items-center justify-center w-4 h-4 rounded-full bg-[#B83B5E] border-4 border-[#0a0a0a] shadow-lg shadow-[#B83B5E]/50 z-10"
                 style={{ 
                   [index % 2 === 0 ? 'right' : 'left']: '-34px',
                 }}
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#F9ED69] animate-pulse" />
               </div>
 
               {/* Card */}
@@ -140,14 +141,14 @@ const Experience = () => {
                 {/* Header */}
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                   <div>
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-[#3b82f6]/10 text-[#3b82f6] border border-[#3b82f6]/20 mb-3">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-[#B83B5E]/10 text-[#F9ED69] border border-[#B83B5E]/20 mb-3">
                       {exp.type}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#3b82f6] transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#F9ED69] transition-colors">
                       {exp.title}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 text-[#3b82f6]">
+                  <div className="flex items-center gap-2 text-[#F08A5D]">
                     <FaBriefcase className="text-lg" />
                     <span className="font-semibold">{exp.company}</span>
                   </div>
@@ -156,11 +157,11 @@ const Experience = () => {
                 {/* Meta */}
                 <div className="flex flex-wrap gap-3 mb-5">
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 text-[#a1a1aa] text-sm">
-                    <FaCalendar className="text-[#3b82f6] text-xs" />
+                    <FaCalendar className="text-[#F08A5D] text-xs" />
                     <span>{exp.date}</span>
                   </div>
                   <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 text-[#a1a1aa] text-sm">
-                    <FaMapMarkerAlt className="text-[#3b82f6] text-xs" />
+                    <FaMapMarkerAlt className="text-[#F08A5D] text-xs" />
                     <span>{exp.location}</span>
                   </div>
                 </div>
@@ -175,7 +176,7 @@ const Experience = () => {
                       transition={{ delay: 0.5 + i * 0.1 }}
                       className="flex items-start gap-3 text-[#a1a1aa] text-sm"
                     >
-                      <FaArrowRight className="text-[#3b82f6] mt-1 flex-shrink-0 text-xs" />
+                      <FaArrowRight className="text-[#F9ED69] mt-1 flex-shrink-0 text-xs" />
                       <span className="leading-relaxed">{item}</span>
                     </motion.li>
                   ))}
@@ -186,7 +187,7 @@ const Experience = () => {
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-xs font-mono rounded-lg bg-gradient-to-r from-[#3b82f6]/10 to-purple-500/10 text-[#60a5fa] border border-[#3b82f6]/20"
+                      className="px-3 py-1.5 text-xs font-mono rounded-lg bg-gradient-to-r from-[#B83B5E]/10 to-[#F9ED69]/10 text-[#F9ED69] border border-[#B83B5E]/20"
                     >
                       {skill}
                     </span>

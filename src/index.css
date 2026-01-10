@@ -14,7 +14,7 @@ html, body {
 }
 
 body {
-  background-color: #0a0a0a;
+  background-color: #000000;
   color: #ffffff;
   font-family: 'Inter', sans-serif;
 }
@@ -58,7 +58,7 @@ a[href] {
 }
 
 /* ======================
-   SCROLLBAR
+   SCROLLBAR - Updated Colors
    ====================== */
 ::-webkit-scrollbar {
   width: 8px;
@@ -69,15 +69,19 @@ a[href] {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3b82f6;
+  background: linear-gradient(180deg, #F08A5D, #B83B5E);
   border-radius: 4px;
 }
 
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #F9ED69, #F08A5D);
+}
+
 /* ======================
-   GLASS + HOVER
+   GLASS + HOVER - Updated Colors
    ====================== */
 .glass {
-  background: rgba(23, 23, 23, 0.85);
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.3s ease;
@@ -85,7 +89,7 @@ a[href] {
 
 .glass:hover {
   box-shadow:
-    0 0 0 1px rgba(59, 130, 246, 0.3),
+    0 0 0 1px rgba(240, 138, 93, 0.3),
     0 20px 40px rgba(0,0,0,0.5);
 }
 
@@ -130,5 +134,3 @@ a[href] {
 #contact.section-padding {
   padding: 120px 0 100px;
 }
-
-

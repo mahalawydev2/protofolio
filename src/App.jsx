@@ -52,7 +52,7 @@ function App() {
     >
       {!isLoading && (
         <ClickSpark
-          sparkColor="#3b82f6"
+          sparkColor="#f63b3b"
           sparkSize={12}
           sparkRadius={20}
           sparkCount={10}

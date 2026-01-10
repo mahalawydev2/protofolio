@@ -70,8 +70,8 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 text-[#3b82f6] font-mono text-sm mb-4">
-            <FaCode className="text-sm" />
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#B83B5E]/10 border border-[#B83B5E]/20 text-[#F08A5D] font-mono text-sm mb-4">
+            <FaCode className="text-sm text-[#F9ED69]" />
             SKILLS
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">

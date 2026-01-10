@@ -20,7 +20,7 @@ const Contact = () => {
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-[#3b82f6]/5 to-transparent rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-[#B83B5E]/5 to-transparent rounded-full" />
 
       <div className="max-w-3xl mx-auto relative z-10">
         {/* Header */}
@@ -34,10 +34,10 @@ const Contact = () => {
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#3b82f6]/10 border border-[#3b82f6]/20 mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#B83B5E]/10 border border-[#B83B5E]/20 mb-4"
           >
-            <FaPaperPlane className="text-[#3b82f6] text-sm" />
-            <span className="text-[#3b82f6] font-mono text-sm tracking-wider">CONTACT</span>
+            <FaPaperPlane className="text-[#F9ED69] text-sm" />
+            <span className="text-[#F08A5D] font-mono text-sm tracking-wider">CONTACT</span>
           </motion.div>
 
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
@@ -62,7 +62,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 whileHover={{ y: -6, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-[#a1a1aa] hover:text-[#3b82f6] hover:bg-[#3b82f6]/10 transition-all border border-white/10 hover:border-[#3b82f6]/30"
+                className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-[#a1a1aa] hover:text-[#F9ED69] hover:bg-[#B83B5E]/10 transition-all border border-white/10 hover:border-[#F08A5D]/30"
               >
                 <span className="text-xl">{social.icon}</span>
               </motion.a>
