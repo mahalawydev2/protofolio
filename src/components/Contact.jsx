@@ -1,3 +1,4 @@
+// components/Contact.jsx - Updated with new colors
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaGithub, FaLinkedin, FaEnvelope, FaPaperPlane } from 'react-icons/fa';
@@ -15,12 +16,12 @@ const Contact = () => {
   return (
     <section 
       id="contact" 
-      className="py-16 md:py-20 px-6 bg-[#0a0a0a] relative overflow-hidden" 
+      className="py-16 md:py-20 px-6 bg-[var(--bg-secondary)] dark:bg-[#1A252E] relative overflow-hidden" 
       ref={ref}
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid opacity-30" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-[#B83B5E]/5 to-transparent rounded-full" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-radial from-[#215E61]/5 to-transparent rounded-full" />
 
       <div className="max-w-3xl mx-auto relative z-10">
         {/* Header */}
@@ -34,16 +35,16 @@ const Contact = () => {
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#B83B5E]/10 border border-[#B83B5E]/20 mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#215E61]/10 border border-[#215E61]/20 mb-4"
           >
-            <FaPaperPlane className="text-[#F9ED69] text-sm" />
-            <span className="text-[#F08A5D] font-mono text-sm tracking-wider">CONTACT</span>
+            <FaPaperPlane className="text-[#FE7F2D] text-sm" />
+            <span className="text-[#FE7F2D] font-mono text-sm tracking-wider">CONTACT</span>
           </motion.div>
 
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Get In <span className="gradient-text">Touch</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
+            Get In <span className="text-[#FE7F2D]">Touch</span>
           </h2>
-          <p className="text-[#a1a1aa] text-lg max-w-xl mx-auto mb-8">
+          <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto mb-8">
             I'm currently open to internships and junior roles. Feel free to reach out!
           </p>
 
@@ -62,7 +63,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 whileHover={{ y: -6, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-14 h-14 rounded-xl bg-white/5 flex items-center justify-center text-[#a1a1aa] hover:text-[#F9ED69] hover:bg-[#B83B5E]/10 transition-all border border-white/10 hover:border-[#F08A5D]/30"
+                className="w-14 h-14 rounded-xl bg-[var(--bg-primary)] dark:bg-[#233D4D] flex items-center justify-center text-[var(--text-secondary)] hover:text-[#FE7F2D] hover:bg-[#215E61]/10 transition-all border border-[var(--glass-border)] hover:border-[#FE7F2D]/30"
               >
                 <span className="text-xl">{social.icon}</span>
               </motion.a>

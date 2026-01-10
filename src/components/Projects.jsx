@@ -1,3 +1,4 @@
+// components/Projects.jsx - Updated with new colors
 import React, { useRef, useState, useMemo, useCallback } from 'react';
 import { motion, useInView, useReducedMotion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt, FaFolder, FaStar, FaCodeBranch } from 'react-icons/fa';
@@ -8,7 +9,6 @@ const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState(null);
   const prefersReducedMotion = useReducedMotion();
 
-  // Memoize animation variants to prevent recreation on each render
   const containerVariants = useMemo(() => ({
     hidden: { opacity: 0 },
     visible: {
@@ -26,7 +26,6 @@ const Projects = () => {
     }
   }), [prefersReducedMotion]);
 
-  // Memoize handlers
   const handleMouseEnter = useCallback((index) => {
     setHoveredProject(index);
   }, []);
@@ -35,7 +34,6 @@ const Projects = () => {
     setHoveredProject(null);
   }, []);
 
-  // Memoize static data
   const featuredProjects = useMemo(() => [
     {
       title: 'EduAi',
@@ -44,7 +42,7 @@ const Projects = () => {
       tags: ['Microservices', 'Node.js', 'React', 'Docker', 'Kubernetes', 'Redis'],
       github: 'https://github.com/mahallawy1',
       live: '#',
-      color: '#F9ED69',
+      color: '#FE7F2D',
     },
     {
       title: 'Distributed Image Processing',
@@ -53,7 +51,7 @@ const Projects = () => {
       tags: ['Python', 'AWS', 'OpenCV', 'MPI', 'OpenCL', 'Lambda'],
       github: 'https://github.com/mahallawy1',
       live: '#',
-      color: '#F08A5D',
+      color: '#215E61',
     },
     {
       title: 'Wassalnii',
@@ -62,7 +60,7 @@ const Projects = () => {
       tags: ['Flutter', 'Firebase', 'SQLite', 'Dart', 'Google Maps'],
       github: 'https://github.com/mahallawy1',
       live: '#',
-      color: '#B83B5E',
+      color: '#233D4D',
     },
   ], []);
 
@@ -114,12 +112,12 @@ const Projects = () => {
   return (
     <section 
       id="projects" 
-      className="py-16 md:py-20 px-6 bg-[#0f0f0f] relative overflow-hidden" 
+      className="py-16 md:py-20 px-6 bg-[var(--bg-primary)] relative overflow-hidden" 
       ref={ref}
     >
-      {/* Background - Use CSS instead of additional divs where possible */}
+      {/* Background */}
       <div className="absolute inset-0 bg-dots opacity-30 will-change-auto" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-[#B83B5E]/5 to-transparent rounded-full blur-3xl will-change-auto" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-b from-[#215E61]/5 to-transparent rounded-full blur-3xl will-change-auto" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
@@ -133,16 +131,16 @@ const Projects = () => {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={isInView ? { scale: 1, opacity: 1 } : {}}
             transition={{ duration: 0.3, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#B83B5E]/10 border border-[#B83B5E]/20 mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#215E61]/10 border border-[#215E61]/20 mb-4"
           >
-            <FaStar className="text-[#F9ED69] text-sm" />
-            <span className="text-[#F08A5D] font-mono text-sm tracking-wider">PROJECTS</span>
+            <FaStar className="text-[#FE7F2D] text-sm" />
+            <span className="text-[#FE7F2D] font-mono text-sm tracking-wider">PROJECTS</span>
           </motion.div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Things I've <span className="gradient-text">Built</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
+           Projects I've <span className="text-[#FE7F2D]">Built</span>
           </h2>
-          <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto">
+          <p className="text-[var(--text-secondary)] text-lg max-w-2xl mx-auto">
             A showcase of my favorite projects that demonstrate my skills and passion for development.
           </p>
         </motion.div>
@@ -170,7 +168,7 @@ const Projects = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.3, duration: 0.3 }}
-            className="text-xl md:text-2xl font-bold text-center text-white mb-3"
+            className="text-xl md:text-2xl font-bold text-center text-[var(--text-primary)] mb-3"
           >
             Other Noteworthy Projects
           </motion.h3>
@@ -178,9 +176,8 @@ const Projects = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ delay: 0.4, duration: 0.3 }}
-            className="text-[#a1a1aa] text-center mb-10 text-sm"
+            className="text-[var(--text-secondary)] text-center mb-10 text-sm"
           >
-            Click to view source code on GitHub
           </motion.p>
 
           <motion.div 
@@ -225,7 +222,7 @@ const Projects = () => {
   );
 };
 
-// Separate memoized component for featured projects
+// Featured Project Card Component
 const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
   <motion.div
     variants={variants}
@@ -237,8 +234,8 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
         className="absolute inset-0 rounded-2xl opacity-50 blur-3xl transition-opacity duration-300 group-hover:opacity-70 will-change-opacity"
         style={{ backgroundColor: project.color }}
       />
-      <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-[#1a1a1a]">
-        <div className="aspect-video bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] flex items-center justify-center">
+      <div className="relative overflow-hidden rounded-2xl border border-[var(--glass-border)] bg-[var(--bg-card)]">
+        <div className="aspect-video bg-gradient-to-br from-[var(--bg-card)] to-[var(--bg-secondary)] flex items-center justify-center">
           <div className="text-center p-6">
             <div 
               className="w-16 h-16 rounded-xl mx-auto mb-3 flex items-center justify-center"
@@ -246,7 +243,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
             >
               <FaCodeBranch className="text-2xl" style={{ color: project.color }} />
             </div>
-            <p className="text-[#a1a1aa] font-mono text-sm">Project Preview</p>
+            <p className="text-[var(--text-muted)] font-mono text-sm">Project Preview</p>
           </div>
         </div>
         
@@ -277,25 +274,16 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
 
     {/* Project Info */}
     <div className={`w-full lg:w-1/2 ${index % 2 === 0 ? 'lg:pl-4' : 'lg:pr-4'}`}>
-      <span 
-        className="inline-block px-3 py-1.5 rounded-full text-xs font-mono mb-3 border"
-        style={{ 
-          backgroundColor: `${project.color}10`,
-          borderColor: `${project.color}30`,
-          color: project.color,
-        }}
-      >
-        Featured Project
-      </span>
       
-      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-2 hover:text-[#F9ED69] transition-colors duration-200 cursor-default">
+      
+      <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--text-primary)] mb-2 hover:text-[#FE7F2D] transition-colors duration-200 cursor-default">
         {project.title}
       </h3>
       
-      <p className="text-[#F08A5D] font-medium mb-4">{project.subtitle}</p>
+      <p className="text-[#215E61] dark:text-[#FE7F2D] font-medium mb-4">{project.subtitle}</p>
       
       <div className="glass-strong rounded-xl p-5 mb-5">
-        <p className="text-[#a1a1aa] leading-relaxed">
+        <p className="text-[var(--text-secondary)] leading-relaxed">
           {project.description}
         </p>
       </div>
@@ -304,7 +292,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="px-3 py-1.5 text-xs font-mono rounded-lg bg-white/5 text-[#a1a1aa] border border-white/10 hover:border-[#F08A5D]/50 hover:text-[#F9ED69] transition-colors duration-200 cursor-default"
+            className="px-3 py-1.5 text-xs font-mono rounded-lg bg-[var(--bg-card)] text-[var(--text-secondary)] border border-[var(--glass-border)] hover:border-[#FE7F2D]/50 hover:text-[#FE7F2D] transition-colors duration-200 cursor-default"
           >
             {tag}
           </span>
@@ -316,7 +304,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
           href={project.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-[#a1a1aa] hover:text-white transition-colors duration-200 group text-sm"
+          className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 group text-sm"
         >
           <FaGithub className="text-xl group-hover:scale-110 transition-transform duration-200" />
           <span>View Source</span>
@@ -325,7 +313,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-[#a1a1aa] hover:text-white transition-colors duration-200 group text-sm"
+          className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors duration-200 group text-sm"
         >
           <FaExternalLinkAlt className="group-hover:scale-110 transition-transform duration-200" />
           <span>Live Demo</span>
@@ -337,7 +325,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
 
 FeaturedProjectCard.displayName = 'FeaturedProjectCard';
 
-// Separate memoized component for other projects
+// Other Project Card Component
 const OtherProjectCard = React.memo(({ project, index, isHovered, onMouseEnter, onMouseLeave, variants }) => (
   <motion.a
     href={project.github}
@@ -350,22 +338,22 @@ const OtherProjectCard = React.memo(({ project, index, isHovered, onMouseEnter, 
   >
     {/* Header */}
     <div className="flex justify-between items-start mb-4">
-      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#B83B5E]/20 to-[#F9ED69]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
-        <FaFolder className="text-xl text-[#F08A5D]" />
+      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#215E61]/20 to-[#FE7F2D]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
+        <FaFolder className="text-xl text-[#FE7F2D]" />
       </div>
       <div 
-        className={`text-[#a1a1aa] group-hover:text-[#F9ED69] transition-all duration-200 ${isHovered ? 'rotate-45 scale-110' : ''}`}
+        className={`text-[var(--text-secondary)] group-hover:text-[#FE7F2D] transition-all duration-200 ${isHovered ? 'rotate-45 scale-110' : ''}`}
       >
         <FaExternalLinkAlt className="text-sm" />
       </div>
     </div>
 
     {/* Content */}
-    <h4 className="text-lg font-bold text-white mb-1 group-hover:text-[#F9ED69] transition-colors duration-200">
+    <h4 className="text-lg font-bold text-[var(--text-primary)] mb-1 group-hover:text-[#FE7F2D] transition-colors duration-200">
       {project.title}
     </h4>
-    <p className="text-[#F08A5D] text-xs font-medium mb-3">{project.subtitle}</p>
-    <p className="text-[#a1a1aa] text-sm leading-relaxed mb-4 line-clamp-3">
+    <p className="text-[#215E61] dark:text-[#FE7F2D] text-xs font-medium mb-3">{project.subtitle}</p>
+    <p className="text-[var(--text-secondary)] text-sm leading-relaxed mb-4 line-clamp-3">
       {project.description}
     </p>
 
@@ -374,7 +362,7 @@ const OtherProjectCard = React.memo(({ project, index, isHovered, onMouseEnter, 
       {project.tags.map((tag) => (
         <span 
           key={tag} 
-          className="text-xs font-mono text-[#a1a1aa]/70 px-2 py-1 bg-white/5 rounded"
+          className="text-xs font-mono text-[var(--text-muted)] px-2 py-1 bg-[var(--bg-secondary)] dark:bg-[#233D4D] rounded"
         >
           {tag}
         </span>

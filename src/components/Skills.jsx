@@ -1,24 +1,11 @@
+// components/Skills.jsx - Updated with new colors
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
-  SiPython,
-  SiCplusplus,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiNodedotjs,
-  SiDocker,
-  SiKubernetes,
-  SiTerraform,
-  SiGit,
-  SiPostman,
-  SiFirebase,
-  SiFlutter,
-  SiReact,
-  SiMongodb,
-  SiMysql,
-  SiLinux,
-  SiTypescript,
+  SiPython, SiCplusplus, SiJavascript, SiHtml5, SiCss3,
+  SiNodedotjs, SiDocker, SiKubernetes, SiTerraform, SiGit,
+  SiPostman, SiFirebase, SiFlutter, SiReact, SiMongodb,
+  SiMysql, SiLinux, SiTypescript,
 } from 'react-icons/si';
 import { FaJava, FaAws, FaCode } from 'react-icons/fa';
 import LogoLoop from './LogoLoop';
@@ -56,7 +43,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-16 md:py-20 px-6 bg-[#0a0a0a] relative overflow-hidden"
+      className="py-16 md:py-20 px-6 bg-[var(--bg-secondary)] dark:bg-[#1A252E] relative overflow-hidden"
       ref={ref}
     >
       {/* Background */}
@@ -70,14 +57,14 @@ const Skills = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-10"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#B83B5E]/10 border border-[#B83B5E]/20 text-[#F08A5D] font-mono text-sm mb-4">
-            <FaCode className="text-sm text-[#F9ED69]" />
+          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#215E61]/10 border border-[#215E61]/20 text-[#FE7F2D] font-mono text-sm mb-4">
+            <FaCode className="text-sm text-[#FE7F2D]" />
             SKILLS
           </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3">
-            Tech <span className="gradient-text">Stack</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-3">
+            Tech <span className="text-[#FE7F2D]">Stack</span>
           </h2>
-          <p className="text-[#a1a1aa] text-lg max-w-xl mx-auto">
+          <p className="text-[var(--text-secondary)] text-lg max-w-xl mx-auto">
             Technologies I use to bring ideas to life
           </p>
         </motion.div>
@@ -89,18 +76,18 @@ const Skills = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-6 overflow-hidden"
         >
-          <LogoLoop
-            logos={primarySkills}
-            speed={80}
-            direction="left"
-            logoHeight={48}
-            gap={64}
-            hoverSpeed={20}
-            fadeOut={true}
-            fadeOutColor="#0a0a0a"
-            scaleOnHover={true}
-            className="py-4"
-          />
+         <LogoLoop
+  logos={primarySkills}
+  speed={80}
+  direction="left"
+  logoHeight={48}
+  gap={64}
+  hoverSpeed={20}
+  fadeOut={true}
+  fadeOutColor="var(--bg-secondary)"  // <-- Add this line
+  scaleOnHover={true}
+  className="py-4"
+/>
         </motion.div>
 
         {/* Secondary Skills Loop */}
@@ -111,17 +98,17 @@ const Skills = () => {
           className="overflow-hidden"
         >
           <LogoLoop
-            logos={secondarySkills}
-            speed={60}
-            direction="right"
-            logoHeight={40}
-            gap={56}
-            hoverSpeed={15}
-            fadeOut={true}
-            fadeOutColor="#0a0a0a"
-            scaleOnHover={true}
-            className="py-4"
-          />
+  logos={secondarySkills}
+  speed={60}
+  direction="right"
+  logoHeight={40}
+  gap={56}
+  hoverSpeed={15}
+  fadeOut={true}
+  fadeOutColor="var(--bg-secondary)"  // <-- Add this line
+  scaleOnHover={true}
+  className="py-4"
+/>
         </motion.div>
       </div>
     </section>

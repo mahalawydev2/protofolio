@@ -1,3 +1,4 @@
+// components/Experience.jsx - Updated with new colors
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaBriefcase, FaMapMarkerAlt, FaCalendar, FaArrowRight } from 'react-icons/fa';
@@ -53,9 +54,7 @@ const Experience = () => {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.3,
-      },
+      transition: { staggerChildren: 0.3 },
     },
   };
 
@@ -64,23 +63,20 @@ const Experience = () => {
     visible: { 
       opacity: 1, 
       x: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.4, 0, 0.2, 1],
-      },
+      transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] },
     },
   };
 
   return (
     <section 
       id="experience" 
-      className="py-16 md:py-20 px-6 bg-[#0a0a0a] relative overflow-hidden" 
+      className="py-16 md:py-20 px-6 bg-[var(--bg-primary)] relative overflow-hidden" 
       ref={ref}
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid opacity-50" />
-      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[#B83B5E]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-[#F9ED69]/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[#215E61]/30 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-[#FE7F2D]/12 rounded-full blur-3xl" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
@@ -94,18 +90,16 @@ const Experience = () => {
             initial={{ scale: 0 }}
             animate={isInView ? { scale: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#B83B5E]/10 border border-[#B83B5E]/20 mb-4"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#215E61]/10 border border-[#215E61]/20 mb-4"
           >
-            <span className="w-2 h-2 rounded-full bg-[#F9ED69] animate-pulse" />
-            <span className="text-[#F08A5D] font-mono text-sm tracking-wider">EXPERIENCE</span>
+            <span className="w-2 h-2 rounded-full bg-[#FE7F2D] animate-pulse" />
+            <span className="text-[#FE7F2D] font-mono text-sm tracking-wider">EXPERIENCE</span>
           </motion.div>
           
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            Where I've <span className="gradient-text">Worked</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
+           Where I've <span className="text-[#FE7F2D]">Worked</span>
           </h2>
-          <p className="text-[#a1a1aa] text-lg max-w-2xl mx-auto">
-            My professional journey and the valuable experiences I've gained along the way.
-          </p>
+         
         </motion.div>
 
         {/* Timeline */}
@@ -116,7 +110,7 @@ const Experience = () => {
           className="max-w-5xl mx-auto relative"
         >
           {/* Center Line */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#F08A5D]/50 to-transparent" />
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-[#FE7F2D]/50 to-transparent" />
 
           {experiences.map((exp, index) => (
             <motion.div
@@ -127,13 +121,11 @@ const Experience = () => {
               }`}
             >
               {/* Timeline Dot */}
-                            {/* Timeline Dot */}
-              <div className="hidden md:flex absolute top-6 items-center justify-center w-4 h-4 rounded-full bg-[#B83B5E] border-4 border-[#0a0a0a] shadow-lg shadow-[#B83B5E]/50 z-10"
-                style={{ 
-                  [index % 2 === 0 ? 'right' : 'left']: '-34px',
-                }}
+              <div 
+                className="hidden md:flex absolute top-6 items-center justify-center w-4 h-4 rounded-full bg-[#215E61] border-4 border-[var(--bg-primary)] shadow-lg shadow-[#215E61]/50 z-10"
+                style={{ [index % 2 === 0 ? 'right' : 'left']: '-34px' }}
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-[#F9ED69] animate-pulse" />
+                <div className="w-1.5 h-1.5 rounded-full bg-[#FE7F2D] animate-pulse" />
               </div>
 
               {/* Card */}
@@ -141,14 +133,14 @@ const Experience = () => {
                 {/* Header */}
                 <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
                   <div>
-                    <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-[#B83B5E]/10 text-[#F9ED69] border border-[#B83B5E]/20 mb-3">
+                    <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-[#215E61]/10 text-[#FE7F2D] border border-[#215E61]/20 mb-3">
                       {exp.type}
                     </span>
-                    <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-[#F9ED69] transition-colors">
+                    <h3 className="text-xl md:text-2xl font-bold text-[var(--text-primary)] group-hover:text-[#FE7F2D] transition-colors">
                       {exp.title}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 text-[#F08A5D]">
+                  <div className="flex items-center gap-2 text-[#215E61] dark:text-[#FE7F2D]">
                     <FaBriefcase className="text-lg" />
                     <span className="font-semibold">{exp.company}</span>
                   </div>
@@ -156,12 +148,12 @@ const Experience = () => {
 
                 {/* Meta */}
                 <div className="flex flex-wrap gap-3 mb-5">
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 text-[#a1a1aa] text-sm">
-                    <FaCalendar className="text-[#F08A5D] text-xs" />
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] dark:bg-[#233D4D] text-[var(--text-secondary)] text-sm">
+                    <FaCalendar className="text-[#FE7F2D] text-xs" />
                     <span>{exp.date}</span>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/5 text-[#a1a1aa] text-sm">
-                    <FaMapMarkerAlt className="text-[#F08A5D] text-xs" />
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] dark:bg-[#233D4D] text-[var(--text-secondary)] text-sm">
+                    <FaMapMarkerAlt className="text-[#FE7F2D] text-xs" />
                     <span>{exp.location}</span>
                   </div>
                 </div>
@@ -174,9 +166,9 @@ const Experience = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={isInView ? { opacity: 1, x: 0 } : {}}
                       transition={{ delay: 0.5 + i * 0.1 }}
-                      className="flex items-start gap-3 text-[#a1a1aa] text-sm"
+                      className="flex items-start gap-3 text-[var(--text-secondary)] text-sm"
                     >
-                      <FaArrowRight className="text-[#F9ED69] mt-1 flex-shrink-0 text-xs" />
+                      <FaArrowRight className="text-[#FE7F2D] mt-1 flex-shrink-0 text-xs" />
                       <span className="leading-relaxed">{item}</span>
                     </motion.li>
                   ))}
@@ -187,7 +179,7 @@ const Experience = () => {
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-xs font-mono rounded-lg bg-gradient-to-r from-[#B83B5E]/10 to-[#F9ED69]/10 text-[#F9ED69] border border-[#B83B5E]/20"
+                      className="px-3 py-1.5 text-xs font-mono rounded-lg bg-gradient-to-r from-[#215E61]/10 to-[#FE7F2D]/10 text-[#215E61] dark:text-[#FE7F2D] border border-[#215E61]/20"
                     >
                       {skill}
                     </span>

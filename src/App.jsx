@@ -1,3 +1,4 @@
+// App.jsx - Dark mode only
 import React, { useState, useEffect } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
@@ -22,6 +23,11 @@ function App() {
     }, 300);
   };
 
+  // Always set dark mode
+  useEffect(() => {
+    document.documentElement.classList.add('dark');
+  }, []);
+
   useEffect(() => {
     if (isLoading) {
       document.body.style.overflow = 'hidden';
@@ -34,49 +40,49 @@ function App() {
     };
   }, [isLoading]);
 
- return (
-  <>
-    {/* Cursor - highest z-index */}
-    <Cursor />
+  return (
+    <>
+      {/* Cursor - highest z-index */}
+      <Cursor />
 
-    <AnimatePresence mode="wait">
-      {isLoading && (
-        <Loader key="loader" onLoadingComplete={handleLoadingComplete} />
-      )}
-    </AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isLoading && (
+          <Loader key="loader" onLoadingComplete={handleLoadingComplete} />
+        )}
+      </AnimatePresence>
 
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: isLoading ? 0 : 1 }}
-      transition={{ duration: 0.5, delay: 0.2 }}
-    >
-      {!isLoading && (
-        <ClickSpark
-          sparkColor="#f63b3b"
-          sparkSize={12}
-          sparkRadius={20}
-          sparkCount={10}
-          duration={500}
-          easing="ease-out"
-          extraScale={1.2}
-        >
-          <div className="bg-[#0a0a0a] min-h-screen">
-            <Navbar />
-            <main>
-              <Hero />
-              <About />
-              <Experience />
-              <Projects />
-              <Skills />
-              <Contact />
-            </main>
-            <Footer />
-          </div>
-        </ClickSpark>
-      )}
-    </motion.div>
-  </>
-);
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+      >
+        {!isLoading && (
+          <ClickSpark
+            sparkColor="#FE7F2D"
+            sparkSize={12}
+            sparkRadius={20}
+            sparkCount={10}
+            duration={500}
+            easing="ease-out"
+            extraScale={1.2}
+          >
+            <div className="bg-[var(--bg-primary)] min-h-screen">
+              <Navbar />
+              <main>
+                <Hero />
+                <About />
+                <Experience />
+                <Projects />
+                <Skills />
+                <Contact />
+              </main>
+              <Footer />
+            </div>
+          </ClickSpark>
+        )}
+      </motion.div>
+    </>
+  );
 }
 
 export default App;

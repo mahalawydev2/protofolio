@@ -1,3 +1,4 @@
+// components/Hero.jsx - Updated with new colors
 import React, { useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
@@ -22,13 +23,17 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen w-full flex items-center overflow-hidden bg-[#0a0a0a]"
+      className="relative min-h-screen w-full flex items-center overflow-hidden bg-[var(--bg-primary)]"
     >
       {/* Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
         <FloatingPaths position={1} />
         <FloatingPaths position={-1} />
       </div>
+
+      {/* Background Gradient Orbs */}
+      <div className="absolute top-20 right-20 w-96 h-96 bg-[#FE7F2D]/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-20 w-80 h-80 bg-[#215E61]/10 rounded-full blur-3xl" />
 
       {/* Content */}
       <div className="relative z-10 w-full">
@@ -46,7 +51,7 @@ const Hero = () => {
                   initial={prefersReducedMotion ? {} : { opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4 }}
-                  className="text-[#F08A5D] font-mono text-lg md:text-xl mb-4"
+                  className="text-[#FE7F2D] font-mono text-lg md:text-xl mb-4"
                 >
                   Hi, I'm
                 </motion.p>
@@ -56,7 +61,7 @@ const Hero = () => {
                   initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.1 }}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--text-primary)] mb-6 leading-tight"
                 >
                   Abdelrahman Mahalawy
                 </motion.h1>
@@ -66,7 +71,7 @@ const Hero = () => {
                   initial={prefersReducedMotion ? {} : { opacity: 0, y: 15 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, delay: 0.2 }}
-                  className="text-xl md:text-2xl lg:text-3xl font-medium text-[#a1a1aa] mb-8 h-12"
+                  className="text-xl md:text-2xl lg:text-3xl font-medium text-[var(--text-secondary)] mb-8 h-12"
                 >
                   <TypeAnimation
                     sequence={[
@@ -82,7 +87,7 @@ const Hero = () => {
                     wrapper="span"
                     speed={50}
                     repeat={Infinity}
-                    className="text-[#F9ED69]"
+                    className="text-[#215E61] dark:text-[#FE7F2D]"
                   />
                 </motion.div>
 
@@ -99,7 +104,7 @@ const Hero = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-3xl text-[#a1a1aa] hover:text-[#F08A5D] transition-colors duration-200"
+                      className="text-3xl text-[var(--text-secondary)] hover:text-[#FE7F2D] transition-colors duration-200"
                       whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                     >
@@ -117,7 +122,7 @@ const Hero = () => {
                 >
                   <motion.a
                     href="#projects"
-                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-gradient-to-r from-[#F08A5D] to-[#B83B5E] text-white text-lg font-semibold rounded-2xl hover:from-[#B83B5E] hover:to-[#6A2C70] transition-all duration-200 shadow-lg shadow-[#B83B5E]/25"
+                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#FE7F2D] text-white text-lg font-semibold rounded-2xl hover:bg-[#1A4A4D] transition-all duration-200 shadow-lg shadow-[#215E61]/25"
                     whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -127,7 +132,7 @@ const Hero = () => {
 
                   <motion.a
                     href="#contact"
-                    className="inline-flex items-center justify-center px-10 py-4 border-2 border-[#F08A5D]/50 text-white text-lg font-semibold rounded-2xl hover:bg-[#F08A5D]/10 hover:border-[#F08A5D] transition-all duration-200"
+                    className="inline-flex items-center justify-center px-10 py-4 border-2 border-[#215E61]/50 dark:border-[#FE7F2D]/50 text-[var(--text-primary)] text-lg font-semibold rounded-2xl hover:bg-[#215E61]/10 dark:hover:bg-[#FE7F2D]/10 hover:border-[#215E61] dark:hover:border-[#FE7F2D] transition-all duration-200"
                     whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >
@@ -145,11 +150,11 @@ const Hero = () => {
               >
                 <div className="relative"> 
                   {/* Glow Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#F9ED69] via-[#F08A5D] to-[#B83B5E] rounded-full blur-3xl opacity-20 animate-pulse will-change-opacity"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#FE7F2D] via-[#215E61] to-[#233D4D] rounded-full blur-3xl opacity-20 animate-pulse will-change-opacity"></div>
                   
                   {/* Profile Image Container */}
                   <motion.div
-                    className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#F08A5D]/30 shadow-2xl shadow-[#B83B5E]/20"
+                    className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#215E61]/30 dark:border-[#FE7F2D]/30 shadow-2xl shadow-[#215E61]/20 dark:shadow-[#FE7F2D]/20"
                     whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
                     transition={{ duration: 0.2 }}
                   >
@@ -163,10 +168,10 @@ const Hero = () => {
                     />
                   </motion.div>
                   
-                  {/* Decorative Ring - simplified animation */}
+                  {/* Decorative Ring */}
                   {!prefersReducedMotion && (
                     <motion.div
-                      className="absolute inset-0 rounded-full border-2 border-[#F9ED69]/20 pointer-events-none"
+                      className="absolute inset-0 rounded-full border-2 border-[#FE7F2D]/20 pointer-events-none"
                       animate={{ 
                         scale: [1, 1.08, 1],
                         opacity: [0.3, 0.5, 0.3]

@@ -1,6 +1,62 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap');
 
+/* ======================
+   CSS VARIABLES FOR THEMING
+   ====================== */
+:root {
+  /* Base Colors */
+  --cream: #F5FBE6;
+  --teal: #215E61;
+  --dark-blue: #233D4D;
+  --orange: #FE7F2D;
+  
+  /* Light Mode Theme Colors */
+  --primary: #215E61;
+  --accent: #FE7F2D;
+  
+  --bg-primary: #F5FBE6;
+  --bg-secondary: #EBF5D6;
+  --bg-card: #FFFFFF;
+  
+  --text-primary: #233D4D;
+  --text-secondary: #3D5A6E;
+  --text-muted: #6B8A9E;
+  
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(33, 94, 97, 0.15);
+  
+  --gradient-primary: linear-gradient(135deg, #215E61 0%, #FE7F2D 100%);
+  
+  --shadow-color: rgba(35, 61, 77, 0.1);
+  --shadow-strong: rgba(35, 61, 77, 0.2);
+  
+  --scrollbar-track: #EBF5D6;
+  --scrollbar-thumb: linear-gradient(180deg, #215E61, #FE7F2D);
+  --scrollbar-thumb-hover: linear-gradient(180deg, #FE7F2D, #215E61);
+}
+
+/* Dark Mode Colors */
+.dark {
+  --bg-primary: #0F1419;
+  --bg-secondary: #1A252E;
+  --bg-card: #233D4D;
+  
+  --text-primary: #F5FBE6;
+  --text-secondary: #C5D9B8;
+  --text-muted: #8BA888;
+  
+  --glass-bg: rgba(35, 61, 77, 0.7);
+  --glass-border: rgba(245, 251, 230, 0.1);
+  
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --shadow-strong: rgba(0, 0, 0, 0.5);
+  
+  --scrollbar-track: #1A252E;
+  --scrollbar-thumb: linear-gradient(180deg, #FE7F2D, #215E61);
+  --scrollbar-thumb-hover: linear-gradient(180deg, #215E61, #FE7F2D);
+}
+
 * {
   margin: 1;
   padding: 1; 
@@ -14,9 +70,10 @@ html, body {
 }
 
 body {
-  background-color: #000000;
-  color: #ffffff;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 #root {
@@ -25,7 +82,7 @@ body {
 }
 
 /* ======================
-   CUSTOM CURSORS
+   CUSTOM CURSORS (UNCHANGED)
    ====================== */
 html {
   cursor: url('/cursors/default.ico') 0 0, auto;
@@ -58,39 +115,46 @@ a[href] {
 }
 
 /* ======================
-   SCROLLBAR - Updated Colors
+   SCROLLBAR - Theme Aware
    ====================== */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #171717;
+  background: var(--scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #F08A5D, #B83B5E);
+  background: linear-gradient(180deg, #215E61, #FE7F2D);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, #F9ED69, #F08A5D);
+  background: linear-gradient(180deg, #FE7F2D, #215E61);
 }
 
 /* ======================
-   GLASS + HOVER - Updated Colors
+   GLASS + HOVER - Theme Aware
    ====================== */
 .glass {
-  background: rgba(0, 0, 0, 0.85);
+  background: var(--glass-bg);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--glass-border);
   transition: all 0.3s ease;
 }
 
 .glass:hover {
   box-shadow:
-    0 0 0 1px rgba(240, 138, 93, 0.3),
-    0 20px 40px rgba(0,0,0,0.5);
+    0 0 0 1px rgba(254, 127, 45, 0.3),
+    0 20px 40px var(--shadow-color);
+}
+
+.glass-strong {
+  background: var(--glass-bg);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--glass-border);
 }
 
 .card-hover {
@@ -102,7 +166,7 @@ a[href] {
 }
 
 /* ======================
-   LAYOUT
+   LAYOUT (UNCHANGED)
    ====================== */
 .section-container {
   width: 100%;
@@ -133,4 +197,140 @@ a[href] {
 
 #contact.section-padding {
   padding: 120px 0 100px;
+}
+
+/* ======================
+   GRADIENT TEXT - Theme Aware
+   ====================== */
+.gradient-text {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ======================
+   BACKGROUND PATTERNS - Theme Aware
+   ====================== */
+.bg-grid {
+  background-image: 
+    linear-gradient(rgba(33, 94, 97, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(33, 94, 97, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.dark .bg-grid {
+  background-image: 
+    linear-gradient(rgba(245, 251, 230, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 251, 230, 0.08) 1px, transparent 1px);
+}
+
+.bg-dots {
+  background-image: radial-gradient(rgba(33, 94, 97, 0.15) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.dark .bg-dots {
+  background-image: radial-gradient(rgba(254, 127, 45, 0.15) 1px, transparent 1px);
+}
+
+/* ======================
+   BUTTONS - Theme Aware
+   ====================== */
+.btn-primary {
+  background: var(--gradient-primary);
+  color: white;
+  font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(33, 94, 97, 0.4);
+}
+
+.btn-outline {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+  padding: 14px 30px;
+  border-radius: 16px;
+  transition: all 0.3s ease;
+  background: transparent;
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(254, 127, 45, 0.3);
+}
+
+/* ======================
+   SELECTION
+   ====================== */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* ======================
+   LOGO LOOP
+   ====================== */
+.logo-loop-container {
+  -webkit-mask-image: -webkit-linear-gradient(
+    left,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+.logo-item svg {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-item:hover svg {
+  filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* ======================
+   LINE CLAMP UTILITY
+   ====================== */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ======================
+   ANIMATIONS
+   ====================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(254, 127, 45, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(33, 94, 97, 0.6); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
 }
