@@ -51,8 +51,8 @@ const Projects = () => {
       subtitle: 'Microservices-Based E-Learning Platform',
       description: 'Developed an e-learning platform using a microservices architecture, delivering core services for payments, user management, webhooks, and frontend interfaces. Implemented real-time collaboration features and AI-powered learning recommendations.',
       tags: ['Microservices', 'Node.js', 'React', 'Docker', 'Kubernetes', 'Redis'],
-      github: 'https://github.com/mahallawy1',
-      live: '#',
+      github: 'https://github.com/CompileQuest?tab=repositories',
+      live: '',
       color: '#FE7F2D',
       image: '/img/eduai-preview.png', // Add your image path
     },
@@ -61,8 +61,8 @@ const Projects = () => {
       subtitle: 'Scalable AWS-Based System',
       description: 'Built a scalable image processing system on AWS, leveraging Python, OpenCV, and MPI/OpenCL for parallel, fault-tolerant image operations, including filtering and edge detection. Achieved 10x performance improvement over sequential processing.',
       tags: ['Python', 'AWS', 'OpenCV', 'MPI', 'OpenCL', 'Lambda'],
-      github: 'https://github.com/mahallawy1',
-      live: '#',
+      github: 'https://github.com/mahallawy1/distributed-image-processing-app',
+      live: '',
       color: '#215E61',
       image: '/img/distributed-img-preview.png', // Add your image path
     },
@@ -71,8 +71,8 @@ const Projects = () => {
       subtitle: 'Cross-Platform Mobile App',
       description: 'Developed a real-time, offline-capable app with Flutter, Firebase, and SQLite, featuring a responsive UI and seamless data synchronization. Implemented push notifications and location-based services.',
       tags: ['Flutter', 'Firebase', 'SQLite', 'Dart', 'Google Maps'],
-      github: 'https://github.com/mahallawy1',
-      live: '#',
+      github: 'https://github.com/mahallawy1/wassalnii',
+      live: '',
       color: '#233D4D',
       image: '/img/wassalnii-preview.png', // Add your image path
     },
@@ -84,7 +84,7 @@ const Projects = () => {
       subtitle: 'Java/JavaFX Application',
       description: 'Designed and implemented a Java/JavaFX application connected to MySQL for comprehensive movie data management.',
       tags: ['Java', 'JavaFX', 'MySQL'],
-      github: 'https://github.com/mahallawy1',
+      github: 'https://github.com/mahallawy1/javafx-connected-with-SQL-Database',
       icon: FaFilm,
       iconColor: '#E50914',
     },
@@ -93,7 +93,7 @@ const Projects = () => {
       subtitle: 'Python Compiler Implementation',
       description: 'Developed a FORTRAN grammar and implemented a mini-compiler in Python supporting lexical analysis, parse trees, error detection, and recovery.',
       tags: ['Python', 'Compiler Design', 'Parsing'],
-      github: 'https://github.com/mahallawy1',
+      github: 'https://github.com/mahallawy1/Mini-Fortran-Compiler',
       icon: FaCode,
       iconColor: '#3776AB',
     },
@@ -102,7 +102,7 @@ const Projects = () => {
       subtitle: 'Kernel Enhancement',
       description: 'Enhanced and recompiled the kernel for Minix3 OS using C, with deployment and testing via WinSCP and Teraterm.',
       tags: ['C', 'Operating Systems', 'Kernel'],
-      github: 'https://github.com/mahallawy1',
+      github: 'https://github.com/mahallawy1/minix',
       icon: FaServer,
       iconColor: '#A8B9CC',
     },
@@ -111,7 +111,7 @@ const Projects = () => {
       subtitle: 'Database Management in Bash',
       description: 'A database management system written entirely in bash. Supports creating/dropping databases and tables, CRUD operations, primary keys, and data types using flat files and metadata.',
       tags: ['Bash', 'Shell', 'File System'],
-      github: 'https://github.com/mahallawy1',
+      github: 'https://github.com/mahallawy1/bash-dbms',
       icon: FaDatabase,
       iconColor: '#4EAA25',
     },
@@ -120,7 +120,7 @@ const Projects = () => {
       subtitle: 'Design Patterns Implementation',
       description: 'Built a library management system implementing decorator, factory, and singleton design patterns with layered architecture, DAO pattern, MySQL database, and JUnit testing.',
       tags: ['Java', 'MySQL', 'Design Patterns', 'JUnit'],
-      github: 'https://github.com/mahallawy1',
+      github: 'https://github.com/mahallawy1/sdp',
       icon: FaBook,
       iconColor: '#B07219',
     },
@@ -129,7 +129,7 @@ const Projects = () => {
       subtitle: 'Peer-to-Peer Chat Application',
       description: 'A peer-to-peer chat application with Python supporting direct messaging, chat rooms, user authentication, and real-time online status tracking via UDP heartbeat messages with MongoDB persistence.',
       tags: ['Python', 'MongoDB', 'Sockets', 'UDP'],
-      github: 'https://github.com/mahallawy1',
+      github: 'https://github.com/mahallawy1/p2p-chat',
       icon: FaComments,
       iconColor: '#47A248',
     },
@@ -296,7 +296,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
             >
               <FaGithub /> Code
             </a>
-            <a 
+          {/*   <a 
               href={project.live}
               target="_blank"
               rel="noopener noreferrer"
@@ -304,7 +304,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
               style={{ backgroundColor: project.color }}
             >
               <FaExternalLinkAlt /> Live
-            </a>
+            </a> */}
           </div>
         </div>
       </div>
@@ -345,7 +345,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
           <FaGithub className="text-lg md:text-xl group-hover:scale-110 transition-transform duration-200" />
           <span>View Source</span>
         </a>
-        <a
+    {/*     <a
           href={project.live}
           target="_blank"
           rel="noopener noreferrer"
@@ -353,7 +353,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
         >
           <FaExternalLinkAlt className="text-sm md:text-base group-hover:scale-110 transition-transform duration-200" />
           <span>Live Demo</span>
-        </a>
+        </a> */}
       </div>
     </div>
   </motion.div>
@@ -425,3 +425,7 @@ const OtherProjectCard = React.memo(({ project, index, isHovered, onMouseEnter, 
 OtherProjectCard.displayName = 'OtherProjectCard';
 
 export default Projects;
+
+
+
+

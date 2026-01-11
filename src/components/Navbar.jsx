@@ -80,9 +80,11 @@ const Navbar = () => {
             
           
             <motion.a
-              href="/resume.pdf"
-              className="px-8 py-3 bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D] transition-all duration-200 text-base"
-              whileTap={{ scale: 0.97 }}
+               href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-8 py-3 bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D] transition-all duration-200 text-base"
+  whileTap={{ scale: 0.97 }}
             >
               Resume
             </motion.a>
@@ -121,12 +123,14 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-                href="/resume.pdf"
-                className="block mt-6 px-8 py-4 bg-gradient-to-r from-[#215E61] to-[#FE7F2D] text-white rounded-xl text-center font-semibold text-lg"
-                onClick={closeMenu}
-              >
-                Resume
-              </a>
+  href="/resume.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block mt-6 px-8 py-4 bg-gradient-to-r from-[#215E61] to-[#FE7F2D] text-white rounded-xl text-center font-semibold text-lg"
+  onClick={closeMenu}
+>
+  Resume
+</a>
             </motion.div>
           )}
         </AnimatePresence>

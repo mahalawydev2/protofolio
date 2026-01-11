@@ -114,29 +114,29 @@ const Hero = () => {
 
                 {/* CTA Buttons */}
                 <motion.div
-                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.4 }}
-                  className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-                >
-                  <motion.a
-                    href="#projects"
-                    className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-[#FE7F2D] text-white text-lg font-semibold rounded-2xl hover:bg-[#1A4A4D] transition-all duration-200 shadow-lg shadow-[#215E61]/25"
-                    whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    View My Work
-                    <span className="text-xl">→</span>
-                  </motion.a>
+  initial={prefersReducedMotion ? {} : { opacity: 0, y: 15 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.4, delay: 0.4 }}
+  className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
+>
+  <motion.a
+    href="#projects"
+    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#FE7F2D] text-white text-base font-semibold rounded-xl hover:bg-[#1A4A4D] transition-all duration-200 shadow-lg shadow-[#215E61]/25"
+    whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+  >
+    View My Work
+    <span className="text-lg">→</span>
+  </motion.a>
 
-                  <motion.a
-                    href="#contact"
-                    className="inline-flex items-center justify-center px-10 py-4 border-2 border-[#215E61]/50 dark:border-[#FE7F2D]/50 text-[var(--text-primary)] text-lg font-semibold rounded-2xl hover:bg-[#215E61]/10 dark:hover:bg-[#FE7F2D]/10 hover:border-[#215E61] dark:hover:border-[#FE7F2D] transition-all duration-200"
-                    whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    Get In Touch
-                  </motion.a>
+  <motion.a
+    href="#contact"
+    className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#215E61]/50 dark:border-[#FE7F2D]/50 text-[var(--text-primary)] text-base font-semibold rounded-xl hover:bg-[#215E61]/10 dark:hover:bg-[#FE7F2D]/10 hover:border-[#215E61] dark:hover:border-[#FE7F2D] transition-all duration-200"
+    whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+  >
+    Get In Touch
+  </motion.a>
                 </motion.div>
               </motion.div>
 
