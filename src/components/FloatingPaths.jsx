@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 const FloatingPaths = ({ position }) => {
   const prefersReducedMotion = useReducedMotion();
   
-  const paths = useMemo(() => Array.from({ length: 36 }, (_, i) => ({
+  const paths = useMemo(() => Array.from({ length: 16 }, (_, i) => ({
     id: i,
     d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
       380 - i * 5 * position
@@ -36,7 +36,7 @@ const FloatingPaths = ({ position }) => {
             initial={{ pathLength: 0.3, opacity: 0.5 }}
             animate={prefersReducedMotion ? {} : {
               pathLength: 1,
-              opacity: [0.2, 0.4, 0.2],
+              opacity: [0.4, 0.9, 0.4],
               pathOffset: [0, 1],
             }}
             transition={prefersReducedMotion ? {} : {
@@ -48,7 +48,7 @@ const FloatingPaths = ({ position }) => {
         ))}
         <defs>
           <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#FE7F2D" stopOpacity="0.4" />
+         <stop offset="0%" stopColor="#FE7F2D" stopOpacity="0.4" />
             <stop offset="50%" stopColor="#4de1e9" stopOpacity="0.9" />
             <stop offset="100%" stopColor="#233D4D" stopOpacity="0.4" />
           </linearGradient>
