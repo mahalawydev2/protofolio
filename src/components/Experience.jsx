@@ -1,4 +1,4 @@
-// components/Experience.jsx - Updated with new colors
+// components/Experience.jsx - With Floating Logos
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { FaBriefcase, FaMapMarkerAlt, FaCalendar, FaArrowRight } from 'react-icons/fa';
@@ -14,6 +14,9 @@ const Experience = () => {
       location: 'Intensive Training',
       date: '09/2024 – 06/2025',
       type: '9-Month Program',
+      // Add logo URL or import
+      logo: '/logos/iti-logo.png', // Replace with your actual logo path
+      logoBg: '#1a365d', // Optional: background color for logo container
       description: [
         'Completed intensive 9-month open-source training program covering full-stack web development.',
         'Gained hands-on experience with modern frameworks, databases, and cloud technologies.',
@@ -28,6 +31,8 @@ const Experience = () => {
       location: 'Onsite',
       date: '07/2023 – 10/2023',
       type: 'Internship',
+      logo: '/logos/isupply-logo.png',
+      logoBg: '#215E61',
       description: [
         'Tested and maintained software systems based on the Laravel framework using Postman and Selenium.',
         'Collaborated with development teams to identify and resolve bugs, enhancing system reliability.',
@@ -41,6 +46,8 @@ const Experience = () => {
       location: 'Training Program',
       date: '06/2022 – 08/2022',
       type: 'Training',
+      logo: '/logos/sprints-logo.png',
+      logoBg: '#FE7F2D',
       description: [
         'Developed both front-end and back-end components of web platforms, including database integration.',
         'Gained hands-on experience with modern web development technologies and best practices.',
@@ -99,7 +106,6 @@ const Experience = () => {
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--text-primary)] mb-4">
            Where I've <span className="text-[#FE7F2D]">Worked</span>
           </h2>
-         
         </motion.div>
 
         {/* Timeline */}
@@ -120,18 +126,56 @@ const Experience = () => {
                 index % 2 === 0 ? 'md:pr-12 md:ml-0' : 'md:pl-12 md:ml-auto'
               }`}
             >
-              {/* Timeline Dot */}
+              {/* Timeline Dot with Logo */}
               <div 
-                className="hidden md:flex absolute top-6 items-center justify-center w-4 h-4 rounded-full bg-[#215E61] border-4 border-[var(--bg-primary)] shadow-lg shadow-[#215E61]/50 z-10"
-                style={{ [index % 2 === 0 ? 'right' : 'left']: '-34px' }}
+                className="hidden md:flex absolute top-6 items-center justify-center w-16 h-16  bg-[var(--bg-card)] border-2 border-[#215E61]/30 shadow-lg shadow-[#215E61]/20 z-10 overflow-hidden"
+                style={{ [index % 2 === 0 ? 'right' : 'left']: '-30px' }}
               >
-                <div className="w-1.5 h-1.5 rounded-full bg-[#FE7F2D] animate-pulse" />
+                {exp.logo ? (
+                  <img 
+                    src={exp.logo} 
+                    alt={`${exp.company} logo`}
+                    className="w-15 h-15 object-contain"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.nextSibling.style.display = 'flex';
+                    }}
+                  />
+                ) : null}
+                {/* Fallback: First letter of company */}
+                <div 
+                  className={`w-full h-full items-center justify-center text-white font-bold text-lg ${exp.logo ? 'hidden' : 'flex'}`}
+                  style={{ backgroundColor: exp.logoBg || '#215E61' }}
+                >
+                  {exp.company.charAt(0)}
+                </div>
               </div>
 
               {/* Card */}
-              <div className="glass-strong rounded-2xl p-6 md:p-8 card-hover group">
+              <div className="glass-strong rounded-2xl p-6 md:p-8 card-hover group relative">
+                {/* Mobile Logo - Shows inside card on mobile */}
+                <div className="md:hidden absolute -top-5 right-6 w-12 h-12 rounded-xl bg-[var(--bg-card)] border-2 border-[#215E61]/30 shadow-lg overflow-hidden flex items-center justify-center">
+                  {exp.logo ? (
+                    <img 
+                      src={exp.logo} 
+                      alt={`${exp.company} logo`}
+                      className="w-8 h-8 object-contain"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <div 
+                    className={`w-full h-full items-center justify-center text-white font-bold text-lg ${exp.logo ? 'hidden' : 'flex'}`}
+                    style={{ backgroundColor: exp.logoBg || '#215E61' }}
+                  >
+                    {exp.company.charAt(0)}
+                  </div>
+                </div>
+
                 {/* Header */}
-                <div className="flex flex-wrap items-start justify-between gap-3 mb-4">
+                <div className="flex flex-wrap items-start justify-between gap-3 mb-4 mt-4 md:mt-0">
                   <div>
                     <span className="inline-block px-3 py-1 rounded-full text-xs font-mono bg-[#215E61]/10 text-[#FE7F2D] border border-[#215E61]/20 mb-3">
                       {exp.type}

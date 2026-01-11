@@ -105,8 +105,7 @@ const Hero = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-3xl text-[var(--text-secondary)] hover:text-[#FE7F2D] transition-colors duration-200"
-                      whileHover={prefersReducedMotion ? {} : { y: -4, scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
+                     
                     >
                       {social.icon}
                     </motion.a>
