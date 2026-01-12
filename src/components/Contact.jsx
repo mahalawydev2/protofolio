@@ -16,7 +16,7 @@ const Contact = () => {
   return (
     <section 
       id="contact" 
-      className="py-16 md:py-20 px-6 bg-[var(--bg-secondary)] dark:bg-[#1A252E] relative overflow-hidden" 
+      className="py-16 md:py-20 px-6 bg-[#1A252E] relative overflow-hidden"
       ref={ref}
     >
       {/* Background Elements */}
@@ -63,8 +63,9 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 whileHover={{ y: -6, scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
-                className="w-14 h-14 rounded-xl bg-[var(--bg-primary)] dark:bg-[#233D4D] flex items-center justify-center text-[var(--text-secondary)] hover:text-[#FE7F2D] hover:bg-[#215E61]/10 transition-all border border-[var(--glass-border)] hover:border-[#FE7F2D]/30"
-              >
+
+className="w-14 h-14 rounded-xl bg-[#233D4D] flex items-center justify-center text-[var(--text-secondary)] hover:text-[#FE7F2D] hover:bg-[#FE7F2D]/10 transition-all border border-[var(--glass-border)] hover:border-[#FE7F2D]/30"            
+  >
                 <span className="text-xl">{social.icon}</span>
               </motion.a>
             ))}

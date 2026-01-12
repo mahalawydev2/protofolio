@@ -316,7 +316,7 @@ const FeaturedProjectCard = React.memo(({ project, index, variants }) => (
         {project.title}
       </h3>
       
-      <p className="text-[#215E61] dark:text-[#FE7F2D] font-medium mb-3 md:mb-4 text-sm md:text-base">{project.subtitle}</p>
+      <p className="text-[#FE7F2D] font-medium mb-3 md:mb-4 text-sm md:text-base">{project.subtitle}</p>
       
       <div className="glass-strong rounded-lg md:rounded-xl p-4 md:p-5 mb-4 md:mb-5">
         <p className="text-[var(--text-secondary)] leading-relaxed text-sm md:text-base">
@@ -397,7 +397,7 @@ const OtherProjectCard = React.memo(({ project, index, isHovered, onMouseEnter, 
       <h4 className="text-base md:text-lg font-bold text-[var(--text-primary)] mb-0.5 md:mb-1 group-hover:text-[#FE7F2D] transition-colors duration-200 line-clamp-1">
         {project.title}
       </h4>
-      <p className="text-[#215E61] dark:text-[#FE7F2D] text-[10px] md:text-xs font-medium mb-2 md:mb-3">{project.subtitle}</p>
+      <p className="text-[#FE7F2D] text-[10px] md:text-xs font-medium mb-2 md:mb-3">{project.subtitle}</p>
       <p className="text-[var(--text-secondary)] text-xs md:text-sm leading-relaxed mb-3 md:mb-4 line-clamp-2 md:line-clamp-3">
         {project.description}
       </p>
@@ -407,7 +407,7 @@ const OtherProjectCard = React.memo(({ project, index, isHovered, onMouseEnter, 
         {project.tags.slice(0, 3).map((tag) => (
           <span 
             key={tag} 
-            className="text-[10px] md:text-xs font-mono text-[var(--text-muted)] px-1.5 md:px-2 py-0.5 md:py-1 bg-[var(--bg-secondary)] dark:bg-[#233D4D] rounded"
+           className="text-[10px] md:text-xs font-mono text-[var(--text-muted)] px-1.5 md:px-2 py-0.5 md:py-1 bg-[#233D4D] rounded"
           >
             {tag}
           </span>

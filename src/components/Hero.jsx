@@ -87,7 +87,7 @@ const Hero = () => {
                     wrapper="span"
                     speed={50}
                     repeat={Infinity}
-                    className="text-[#215E61] dark:text-[#FE7F2D]"
+                    className="text-[#FE7F2D]"
                   />
                 </motion.div>
 
@@ -131,8 +131,7 @@ const Hero = () => {
 
   <motion.a
     href="#contact"
-    className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#215E61]/50 dark:border-[#FE7F2D]/50 text-[var(--text-primary)] text-base font-semibold rounded-xl hover:bg-[#215E61]/10 dark:hover:bg-[#FE7F2D]/10 hover:border-[#215E61] dark:hover:border-[#FE7F2D] transition-all duration-200"
-    whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
+className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#FE7F2D]/50 text-[var(--text-primary)] text-base font-semibold rounded-xl hover:bg-[#FE7F2D]/10 hover:border-[#FE7F2D] transition-all duration-200"    whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
     whileTap={{ scale: 0.98 }}
   >
     Get In Touch
@@ -153,8 +152,7 @@ const Hero = () => {
                   
                   {/* Profile Image Container */}
                   <motion.div
-                    className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#215E61]/30 dark:border-[#FE7F2D]/30 shadow-2xl shadow-[#215E61]/20 dark:shadow-[#FE7F2D]/20"
-                    whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
+className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#FE7F2D]/30 shadow-2xl shadow-[#FE7F2D]/20"                    whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
                     transition={{ duration: 0.2 }}
                   >
                     <img

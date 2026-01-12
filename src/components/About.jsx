@@ -11,7 +11,7 @@ const About = () => {
   return (
     <section 
       id="about" 
-      className="py-16 md:py-20 px-4 sm:px-6 bg-[var(--bg-secondary)] dark:bg-[#1A252E] relative overflow-hidden" 
+      className="py-16 md:py-20 px-4 sm:px-6 bg-[#1A252E] relative overflow-hidden" 
       ref={ref}
     >
       {/* Background */}
@@ -60,8 +60,8 @@ const About = () => {
       onError={() => setLogoError(true)}
     />
   ) : (
-    <FaGraduationCap className="text-[#215E61] dark:text-[#FE7F2D] text-2xl" />
-  )}
+<FaGraduationCap className="text-[#FE7F2D] text-2xl" />  
+)}
 </div>
 
               {/* Text */}
@@ -81,8 +81,8 @@ const About = () => {
           {/* Main Text */}
           <p className="text-[var(--text-secondary)] text-base md:text-lg lg:text-xl leading-relaxed text-center">
             I'm <span className="text-[var(--text-primary)] font-semibold">Abdelrahman S. Ahmed</span>, 
-            a recent Computer Engineering graduate, specializing in <span className="text-[#215E61] dark:text-[#FE7F2D]">Distributed Computing</span> and{' '}
-            <span className="text-[#215E61] dark:text-[#FE7F2D]">Software Product Lines</span>. 
+            a recent Computer Engineering graduate, specializing in <span className="text-[#FE7F2D]">Distributed Computing</span> and{' '}
+            <span className="text-[#FE7F2D]">Software Product Lines</span>. 
             I'm passionate about building scalable software solutions and love tackling complex problems, 
             turning them into elegant, efficient applications. Currently seeking opportunities to grow as a{' '}
             <span className="text-[#FE7F2D] font-medium">Software Developer</span>.

@@ -40,11 +40,11 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.3 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-        scrolled 
-          ? 'bg-[var(--bg-primary)]/90 dark:bg-[#0F1419]/90 backdrop-blur-lg shadow-lg shadow-[var(--shadow-color)]' 
-          : 'bg-transparent'
-      }`}
+     className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+  scrolled 
+    ? 'bg-[#0F1419]/90 backdrop-blur-lg shadow-lg shadow-black/20' 
+    : 'bg-transparent'
+}`}
     >
       <div className="w-full px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
@@ -83,7 +83,7 @@ const Navbar = () => {
                href="/resume.pdf"
   target="_blank"
   rel="noopener noreferrer"
-  className="px-8 py-3 bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D] transition-all duration-200 text-base"
+  className="px-7 py-2 bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D] transition-all duration-200 text-base"
   whileTap={{ scale: 0.97 }}
             >
               Resume
@@ -126,7 +126,7 @@ const Navbar = () => {
   href="/resume.pdf"
   target="_blank"
   rel="noopener noreferrer"
-  className="block mt-6 px-8 py-4 bg-gradient-to-r from-[#215E61] to-[#FE7F2D] text-white rounded-xl text-center font-semibold text-lg"
+  className="block mt-6 px-8 py-3bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D]text-white rounded-xl text-center font-semibold text-lg"
   onClick={closeMenu}
 >
   Resume

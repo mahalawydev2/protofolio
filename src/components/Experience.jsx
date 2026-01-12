@@ -9,22 +9,34 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Full Stack Development Track',
+
+title: 'Open-Source Applications Development',
       company: 'Information Technology Institute (ITI)',
-      location: 'Intensive Training',
-      date: '09/2024 – 06/2025',
+      location: 'Professional Training Program ',
+      date: '09/2025 – 06/2026',
       type: '9-Month Program',
       // Add logo URL or import
       logo: '/logos/iti-logo.png', // Replace with your actual logo path
       logoBg: '#1a365d', // Optional: background color for logo container
-      description: [
-        'Completed intensive 9-month open-source training program covering full-stack web development.',
-        'Gained hands-on experience with modern frameworks, databases, and cloud technologies.',
-        'Built multiple real-world projects applying agile methodologies and best practices.',
-        'Collaborated with peers on team projects, enhancing communication and problem-solving skills.',
-      ],
-      skills: ['React', 'Node.js', 'Python', 'Django', 'PostgreSQL', 'Docker', 'AWS'],
-    },
+   description: [
+    'Completed 1,110 hours of rigorous training in full-stack development, spanning frontend frameworks, backend systems, and DevOps practices.',
+    'Built production-ready applications using React, Angular, Vue.js, and Node.js with proper testing, version control, and deployment workflows.',
+    'Worked extensively with Linux environments, containerization with Docker, and database design using both SQL and NoSQL solutions.',
+    'Trained on integrating Generative AI into software products—including RAG pipelines and agentic architectures.',
+  ],
+  skills: [
+    'Linux',
+    'React',
+    'Angular',
+    'Vue.js',
+    'Node.js',
+    'PHP',
+    'Python',
+    'MongoDB',
+    'MySQL',
+    'Docker',
+  ],
+},
     {
       title: 'Software Developer Intern',
       company: "I'SUPPLY",
@@ -184,7 +196,7 @@ const Experience = () => {
                       {exp.title}
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 text-[#215E61] dark:text-[#FE7F2D]">
+                  <div className="flex items-center gap-2 text-[#FE7F2D]">
                     <FaBriefcase className="text-lg" />
                     <span className="font-semibold">{exp.company}</span>
                   </div>
@@ -192,11 +204,11 @@ const Experience = () => {
 
                 {/* Meta */}
                 <div className="flex flex-wrap gap-3 mb-5">
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] dark:bg-[#233D4D] text-[var(--text-secondary)] text-sm">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#233D4D] text-[var(--text-secondary)] text-sm">
                     <FaCalendar className="text-[#FE7F2D] text-xs" />
                     <span>{exp.date}</span>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] dark:bg-[#233D4D] text-[var(--text-secondary)] text-sm">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#233D4D] text-[var(--text-secondary)] text-sm">
                     <FaMapMarkerAlt className="text-[#FE7F2D] text-xs" />
                     <span>{exp.location}</span>
                   </div>
@@ -223,7 +235,7 @@ const Experience = () => {
                   {exp.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-xs font-mono rounded-lg bg-gradient-to-r from-[#215E61]/10 to-[#FE7F2D]/10 text-[#215E61] dark:text-[#FE7F2D] border border-[#215E61]/20"
+                      className="px-3 py-1.5 text-xs font-mono rounded-lg bg-gradient-to-r from-[#215E61]/10 to-[#FE7F2D]/10 text-[#FE7F2D] border border-[#FE7F2D]/20"
                     >
                       {skill}
                     </span>

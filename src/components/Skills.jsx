@@ -1,13 +1,15 @@
-// components/Skills.jsx - Updated with new colors
+// components/Skills.jsx
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
-  SiPython, SiCplusplus, SiJavascript, SiHtml5, SiCss3,
-  SiNodedotjs, SiDocker, SiKubernetes, SiTerraform, SiGit,
-  SiPostman, SiFirebase, SiFlutter, SiReact, SiMongodb,
-  SiMysql, SiLinux, SiTypescript,
+  SiTypescript, SiJavascript, SiReact, SiNextdotjs,
+  SiNodedotjs, SiNestjs, SiAngular, SiVuedotjs,
+  SiTailwindcss, SiRuby, SiDocker, SiGit,
+  SiMongodb, SiPostgresql, SiRedis, SiSupabase,
+  SiFirebase, SiLinux, SiNginx, SiApache,
+  SiFlutter, SiJest, SiPostman, SiPrisma,
 } from 'react-icons/si';
-import { FaJava, FaAws, FaCode } from 'react-icons/fa';
+import { FaJava, FaAws, FaRedhat, FaCode } from 'react-icons/fa';
 import LogoLoop from './LogoLoop';
 
 const Skills = () => {
@@ -15,30 +17,39 @@ const Skills = () => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   const primarySkills = [
-    { node: <SiPython style={{ color: '#3776AB' }} />, title: 'Python' },
+    { node: <SiTypescript style={{ color: '#3178C6' }} />, title: 'TypeScript' },
     { node: <SiJavascript style={{ color: '#F7DF1E' }} />, title: 'JavaScript' },
     { node: <SiReact style={{ color: '#61DAFB' }} />, title: 'React' },
+    { node: <SiNextdotjs style={{ color: '#ffff' }} />, title: 'Next.js' },
     { node: <SiNodedotjs style={{ color: '#339933' }} />, title: 'Node.js' },
-    { node: <SiTypescript style={{ color: '#3178C6' }} />, title: 'TypeScript' },
+    { node: <SiNestjs style={{ color: '#E0234E' }} />, title: 'NestJS' },
+    { node: <SiAngular style={{ color: '#DD0031' }} />, title: 'Angular' },
     { node: <SiDocker style={{ color: '#2496ED' }} />, title: 'Docker' },
-    { node: <SiKubernetes style={{ color: '#326CE5' }} />, title: 'Kubernetes' },
-    { node: <FaAws style={{ color: '#FF9900' }} />, title: 'AWS' },
-    { node: <SiMongodb style={{ color: '#47A248' }} />, title: 'MongoDB' },
     { node: <SiGit style={{ color: '#F05032' }} />, title: 'Git' },
+    { node: <SiMongodb style={{ color: '#47A248' }} />, title: 'MongoDB' },
+    { node: <SiPostgresql style={{ color: '#4169E1' }} />, title: 'PostgreSQL' },
+    { node: <FaAws style={{ color: '#FF9900' }} />, title: 'AWS' },
   ];
 
   const secondarySkills = [
-    { node: <SiCplusplus style={{ color: '#00599C' }} />, title: 'C/C++' },
+    { node: <SiVuedotjs style={{ color: '#4FC08D' }} />, title: 'Vue.js' },
+    { node: <SiTailwindcss style={{ color: '#06B6D4' }} />, title: 'Tailwind CSS' },
     { node: <FaJava style={{ color: '#ED8B00' }} />, title: 'Java' },
-    { node: <SiFlutter style={{ color: '#02569B' }} />, title: 'Flutter' },
+    { node: <SiRuby style={{ color: '#CC342D' }} />, title: 'Ruby' },
+    { node: <SiRedis style={{ color: '#DC382D' }} />, title: 'Redis' },
+    { node: <SiSupabase style={{ color: '#3ECF8E' }} />, title: 'Supabase' },
     { node: <SiFirebase style={{ color: '#FFCA28' }} />, title: 'Firebase' },
-    { node: <SiMysql style={{ color: '#4479A1' }} />, title: 'MySQL' },
-    { node: <SiTerraform style={{ color: '#7B42BC' }} />, title: 'Terraform' },
     { node: <SiLinux style={{ color: '#FCC624' }} />, title: 'Linux' },
+    { node: <FaRedhat style={{ color: '#EE0000' }} />, title: 'Red Hat' },
+    { node: <SiNginx style={{ color: '#009639' }} />, title: 'Nginx' },
+    { node: <SiApache style={{ color: '#D22128' }} />, title: 'Apache' },
+    { node: <SiFlutter style={{ color: '#02569B' }} />, title: 'Flutter' },
+    { node: <SiJest style={{ color: '#C21325' }} />, title: 'Jest' },
     { node: <SiPostman style={{ color: '#FF6C37' }} />, title: 'Postman' },
-    { node: <SiHtml5 style={{ color: '#E34F26' }} />, title: 'HTML5' },
-    { node: <SiCss3 style={{ color: '#1572B6' }} />, title: 'CSS3' },
+    { node: <SiPrisma style={{ color: '#2D3748' }} />, title: 'Prisma' },
   ];
+
+  // Rest of your component...
 
   return (
     <section
