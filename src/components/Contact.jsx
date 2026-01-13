@@ -61,7 +61,7 @@ const Contact = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -6, scale: 1.1 }}
+                
                 whileTap={{ scale: 0.95 }}
 
 className="w-14 h-14 rounded-xl bg-[#233D4D] flex items-center justify-center text-[var(--text-secondary)] hover:text-[#FE7F2D] hover:bg-[#FE7F2D]/10 transition-all border border-[var(--glass-border)] hover:border-[#FE7F2D]/30"            

@@ -51,12 +51,12 @@ const About = () => {
             <div className="inline-flex items-center gap-4 px-5 py-3 rounded-2xl bg-[var(--bg-primary)] border border-[var(--glass-border)]">
               {/* Logo */}
           
-<div className="w-18 h-18 rounded-xl bg-white flex items-center justify-center overflow-hidden">
+<div className="w-21 h-21 rounded-full bg-white flex items-center justify-center overflow-hidden">
   {!logoError ? (
     <img 
       src="/logos/asu-logo.png"
       alt="Ain Shams University"
-      className="w-17 h-17 object-contain"
+      className="w-20 h-20 object-contain"
       onError={() => setLogoError(true)}
     />
   ) : (

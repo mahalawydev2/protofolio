@@ -1,4 +1,3 @@
-// components/Navbar.jsx - Updated with ThemeToggle
 import React, { useState, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiMenuAlt3, HiX } from 'react-icons/hi';
@@ -36,23 +35,19 @@ const Navbar = () => {
   ], []);
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.3 }}
-     className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-  scrolled 
-    ? 'bg-[#0F1419]/90 backdrop-blur-lg shadow-lg shadow-black/20' 
-    : 'bg-transparent'
-}`}
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+        scrolled 
+          ? 'bg-[#0F1419]/90 backdrop-blur-lg shadow-lg shadow-black/20' 
+          : 'bg-transparent'
+      }`}
     >
       <div className="w-full px-6 lg:px-10">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <motion.a
+          <a
             href="#home"
-            className="flex items-center"
-            whileHover={{ scale: 1.03 }}
+            className="flex items-center hover:scale-[1.03] transition-transform duration-150"
           >
             <img
               src="/img/logo3.png"
@@ -61,33 +56,28 @@ const Navbar = () => {
               loading="eager"
               decoding="async"
             />
-          </motion.a>
+          </a>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item, index) => (
-              <motion.a
+            {navItems.map((item) => (
+              <a
                 key={item.name}
                 href={item.href}
                 className="text-[var(--text-secondary)] hover:text-[#FE7F2D] transition-colors duration-150 text-base font-medium"
-                initial={{ opacity: 0, y: -15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.05, duration: 0.2 }}
               >
                 {item.name}
-              </motion.a>
+              </a>
             ))}
             
-          
-            <motion.a
-               href="/resume.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="px-7 py-2 bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D] transition-all duration-200 text-base"
-  whileTap={{ scale: 0.97 }}
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-2 bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D] transition-all duration-200 text-base active:scale-[0.97]"
             >
               Resume
-            </motion.a>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -123,19 +113,19 @@ const Navbar = () => {
                 </a>
               ))}
               <a
-  href="/resume.pdf"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="block mt-6 px-8 py-3bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D]text-white rounded-xl text-center font-semibold text-lg"
-  onClick={closeMenu}
->
-  Resume
-</a>
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-6 px-8 py-3 bg-[#215E61] text-white rounded-xl font-semibold hover:bg-[#1A4A4D] text-center text-lg"
+                onClick={closeMenu}
+              >
+                Resume
+              </a>
             </motion.div>
           )}
         </AnimatePresence>
       </div>
-    </motion.nav>
+    </nav>
   );
 };
 

@@ -14,12 +14,6 @@ const Hero = () => {
     { icon: <FaEnvelope />, href: 'mailto:abdelrahmanmahalawy@gmail.com', label: 'Email' },
   ], []);
 
-  const animationProps = useMemo(() => ({
-    initial: prefersReducedMotion ? { opacity: 1 } : { opacity: 0 },
-    animate: { opacity: 1 },
-    transition: { duration: prefersReducedMotion ? 0 : 0.6 }
-  }), [prefersReducedMotion]);
-
   return (
     <section
       id="home"
@@ -42,44 +36,26 @@ const Hero = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               
               {/* Left Column - Text Content */}
-              <motion.div
-                {...animationProps}
-                className="text-center lg:text-left order-2 lg:order-1"
-              >
+              <div className="text-center lg:text-left order-2 lg:order-1">
                 {/* Greeting */}
-                <motion.p
-                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4 }}
-                  className="text-[#FE7F2D] font-mono text-lg md:text-xl mb-4"
-                >
+                <p className="text-[#FE7F2D] font-mono text-lg md:text-xl mb-4">
                   Hi, I'm
-                </motion.p>
+                </p>
 
                 {/* Name */}
-                <motion.h1
-                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.1 }}
-                  className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--text-primary)] mb-6 leading-tight"
-                >
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--text-primary)] mb-6 leading-tight">
                   Abdelrahman Mahalawy
-                </motion.h1>
+                </h1>
 
                 {/* Typing Animation */}
-                <motion.div
-                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
-                  className="text-xl md:text-2xl lg:text-3xl font-medium text-[var(--text-secondary)] mb-8 h-12"
-                >
+                <div className="text-xl md:text-2xl lg:text-3xl font-medium text-[var(--text-secondary)] mb-8 h-12">
                   <TypeAnimation
                     sequence={[
-                      'Software Developer',
+                      'Software engineer',
                       2000,
                       'Full Stack Engineer',
                       2000,
-                      'Computer Engineering Student',
+                      'Computer Engineering Graduate',
                       2000,
                       'Problem Solver',
                       2000,
@@ -89,72 +65,50 @@ const Hero = () => {
                     repeat={Infinity}
                     className="text-[#FE7F2D]"
                   />
-                </motion.div>
+                </div>
 
                 {/* Social Links */}
-                <motion.div
-                  initial={prefersReducedMotion ? {} : { opacity: 0, y: 15 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: 0.3 }}
-                  className="flex justify-center lg:justify-start gap-6 mb-10"
-                >
+                <div className="flex justify-center lg:justify-start gap-6 mb-10">
                   {socialLinks.map((social) => (
-                    <motion.a
+                    <a
                       key={social.label}
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-3xl text-[var(--text-secondary)] hover:text-[#FE7F2D] transition-colors duration-200"
-                     
                     >
                       {social.icon}
-                    </motion.a>
+                    </a>
                   ))}
-                </motion.div>
+                </div>
 
                 {/* CTA Buttons */}
-                <motion.div
-  initial={prefersReducedMotion ? {} : { opacity: 0, y: 15 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.4, delay: 0.4 }}
-  className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
->
-  <motion.a
-    href="#projects"
-    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#FE7F2D] text-white text-base font-semibold rounded-xl hover:bg-[#1A4A4D] transition-all duration-200 shadow-lg shadow-[#215E61]/25"
-    whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-  >
-    View My Work
-    <span className="text-lg">→</span>
-  </motion.a>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+                  <a
+                    href="#projects"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#FE7F2D] text-white text-base font-semibold rounded-xl hover:bg-[#1A4A4D] transition-all duration-200 shadow-lg shadow-[#215E61]/25 hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    View My Work
+                    <span className="text-lg">→</span>
+                  </a>
 
-  <motion.a
-    href="#contact"
-className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#FE7F2D]/50 text-[var(--text-primary)] text-base font-semibold rounded-xl hover:bg-[#FE7F2D]/10 hover:border-[#FE7F2D] transition-all duration-200"    whileHover={prefersReducedMotion ? {} : { scale: 1.02 }}
-    whileTap={{ scale: 0.98 }}
-  >
-    Get In Touch
-  </motion.a>
-                </motion.div>
-              </motion.div>
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#FE7F2D]/50 text-[var(--text-primary)] text-base font-semibold rounded-xl hover:bg-[#FE7F2D]/10 hover:border-[#FE7F2D] transition-all duration-200  "
+                  >
+                    Get In Touch
+                  </a>
+                </div>
+              </div>
 
               {/* Right Column - Profile Image */}
-              <motion.div
-                initial={prefersReducedMotion ? {} : { opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="flex justify-center lg:justify-end order-1 lg:order-2"
-              >
+             <div className="flex justify-center lg:justify-end order-1 lg:order-2 pt-20 lg:pt-0">
                 <div className="relative"> 
                   {/* Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#FE7F2D] via-[#215E61] to-[#233D4D] rounded-full blur-3xl opacity-20 animate-pulse will-change-opacity"></div>
                   
                   {/* Profile Image Container */}
-                  <motion.div
-className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#FE7F2D]/30 shadow-2xl shadow-[#FE7F2D]/20"                    whileHover={prefersReducedMotion ? {} : { scale: 1.03 }}
-                    transition={{ duration: 0.2 }}
-                  >
+                  <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#FE7F2D]/30 shadow-2xl shadow-[#FE7F2D]/20 ">
                     <img
                       src="/img/profile.png"
                       alt="Abdelrahman Mahalawy"
@@ -163,7 +117,7 @@ className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overf
                       loading="eager"
                       decoding="async"
                     />
-                  </motion.div>
+                  </div>
                   
                   {/* Decorative Ring */}
                   {!prefersReducedMotion && (
@@ -181,7 +135,7 @@ className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overf
                     />
                   )}
                 </div>
-              </motion.div>
+              </div>
 
             </div>
           </div>

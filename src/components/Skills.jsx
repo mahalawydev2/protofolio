@@ -1,4 +1,3 @@
-// components/Skills.jsx
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
@@ -7,7 +6,7 @@ import {
   SiTailwindcss, SiRuby, SiDocker, SiGit,
   SiMongodb, SiPostgresql, SiRedis, SiSupabase,
   SiFirebase, SiLinux, SiNginx, SiApache,
-  SiFlutter, SiJest, SiPostman, SiPrisma,
+  SiFlutter, SiJest, SiPostman, SiPrisma, SiJira,
 } from 'react-icons/si';
 import { FaJava, FaAws, FaRedhat, FaCode } from 'react-icons/fa';
 import LogoLoop from './LogoLoop';
@@ -40,16 +39,16 @@ const Skills = () => {
     { node: <SiSupabase style={{ color: '#3ECF8E' }} />, title: 'Supabase' },
     { node: <SiFirebase style={{ color: '#FFCA28' }} />, title: 'Firebase' },
     { node: <SiLinux style={{ color: '#FCC624' }} />, title: 'Linux' },
-    { node: <FaRedhat style={{ color: '#EE0000' }} />, title: 'Red Hat' },
+   // { node: <FaRedhat style={{ color: '#EE0000' }} />, title: 'Red Hat' },
     { node: <SiNginx style={{ color: '#009639' }} />, title: 'Nginx' },
     { node: <SiApache style={{ color: '#D22128' }} />, title: 'Apache' },
     { node: <SiFlutter style={{ color: '#02569B' }} />, title: 'Flutter' },
     { node: <SiJest style={{ color: '#C21325' }} />, title: 'Jest' },
     { node: <SiPostman style={{ color: '#FF6C37' }} />, title: 'Postman' },
-    { node: <SiPrisma style={{ color: '#2D3748' }} />, title: 'Prisma' },
+    { node: <SiPrisma style={{ color: '#ffffff' }} />, title: 'Prisma' },
+    { node: <SiJira style={{ color: '#0052CC' }} />, title: 'Jira' },
   ];
 
-  // Rest of your component...
 
   return (
     <section

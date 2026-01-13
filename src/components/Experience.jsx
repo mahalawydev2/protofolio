@@ -94,8 +94,8 @@ title: 'Open-Source Applications Development',
     >
       {/* Background Elements */}
       <div className="absolute inset-0 bg-grid opacity-50" />
-      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[#215E61]/30 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-[#FE7F2D]/12 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 -left-64 w-96 h-96 bg-[#215E61]/20 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 -right-64 w-96 h-96 bg-[#FE7F2D]/7 rounded-full blur-3xl" />
       
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Section Header */}
@@ -164,7 +164,7 @@ title: 'Open-Source Applications Development',
               </div>
 
               {/* Card */}
-              <div className="glass-strong rounded-2xl p-6 md:p-8 card-hover group relative">
+              <div className="glass-strong rounded-2xl p-6 md:p-8  group relative">
                 {/* Mobile Logo - Shows inside card on mobile */}
                 <div className="md:hidden absolute -top-5 right-6 w-12 h-12 rounded-xl bg-[var(--bg-card)] border-2 border-[#215E61]/30 shadow-lg overflow-hidden flex items-center justify-center">
                   {exp.logo ? (
