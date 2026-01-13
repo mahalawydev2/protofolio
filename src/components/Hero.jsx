@@ -1,5 +1,5 @@
-// components/Hero.jsx - Updated with new colors
-import React, { useMemo } from 'react';
+// components/Hero.jsx
+import React, { useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
@@ -7,6 +7,7 @@ import FloatingPaths from './FloatingPaths';
 
 const Hero = () => {
   const prefersReducedMotion = useReducedMotion();
+  const [imageLoaded, setImageLoaded] = useState(false);
   
   const socialLinks = useMemo(() => [
     { icon: <FaGithub />, href: 'https://github.com/mahallawy1', label: 'GitHub' },
@@ -37,17 +38,14 @@ const Hero = () => {
               
               {/* Left Column - Text Content */}
               <div className="text-center lg:text-left order-2 lg:order-1">
-                {/* Greeting */}
                 <p className="text-[#FE7F2D] font-mono text-lg md:text-xl mb-4">
                   Hi, I'm
                 </p>
 
-                {/* Name */}
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--text-primary)] mb-6 leading-tight">
                   Abdelrahman Mahalawy
                 </h1>
 
-                {/* Typing Animation */}
                 <div className="text-xl md:text-2xl lg:text-3xl font-medium text-[var(--text-secondary)] mb-8 h-12">
                   <TypeAnimation
                     sequence={[
@@ -67,7 +65,6 @@ const Hero = () => {
                   />
                 </div>
 
-                {/* Social Links */}
                 <div className="flex justify-center lg:justify-start gap-6 mb-10">
                   {socialLinks.map((social) => (
                     <a
@@ -82,11 +79,10 @@ const Hero = () => {
                   ))}
                 </div>
 
-                {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
                   <a
                     href="#projects"
-                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#FE7F2D] text-white text-base font-semibold rounded-xl hover:bg-[#1A4A4D] transition-all duration-200 shadow-lg shadow-[#215E61]/25 hover:scale-[1.02] active:scale-[0.98]"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-[#FE7F2D] text-white text-base font-semibold rounded-xl hover:bg-[#1A4A4D] transition-all duration-200 shadow-lg shadow-[#215E61]/25"
                   >
                     View My Work
                     <span className="text-lg">→</span>
@@ -94,7 +90,7 @@ const Hero = () => {
 
                   <a
                     href="#contact"
-                    className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#FE7F2D]/50 text-[var(--text-primary)] text-base font-semibold rounded-xl hover:bg-[#FE7F2D]/10 hover:border-[#FE7F2D] transition-all duration-200  "
+                    className="inline-flex items-center justify-center px-8 py-3 border-2 border-[#FE7F2D]/50 text-[var(--text-primary)] text-base font-semibold rounded-xl hover:bg-[#FE7F2D]/10 hover:border-[#FE7F2D] transition-all duration-200"
                   >
                     Get In Touch
                   </a>
@@ -102,20 +98,34 @@ const Hero = () => {
               </div>
 
               {/* Right Column - Profile Image */}
-             <div className="flex justify-center lg:justify-end order-1 lg:order-2 pt-20 lg:pt-0">
+              <div className="flex justify-center lg:justify-end order-1 lg:order-2 pt-20 lg:pt-0">
                 <div className="relative"> 
                   {/* Glow Effect */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[#FE7F2D] via-[#215E61] to-[#233D4D] rounded-full blur-3xl opacity-20 animate-pulse will-change-opacity"></div>
                   
                   {/* Profile Image Container */}
-                  <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#FE7F2D]/30 shadow-2xl shadow-[#FE7F2D]/20 ">
+                  <div className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-4 border-[#FE7F2D]/30 shadow-2xl shadow-[#FE7F2D]/20">
+                    
+                    {/* Skeleton Loader */}
+                    {!imageLoaded && (
+                      <div className="absolute inset-0 bg-[#1a1a1a]">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <span className="text-4xl sm:text-5xl font-bold text-[#FE7F2D]/20">A</span>
+                        </div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent animate-[shimmer_1.5s_infinite]" />
+                      </div>
+                    )}
+                    
                     <img
                       src="/img/profile.png"
                       alt="Abdelrahman Mahalawy"
-                      className="w-full h-full object-cover object-center scale-110"
+                      className={`w-full h-full object-cover object-center scale-110 transition-opacity duration-500 ${
+                        imageLoaded ? 'opacity-100' : 'opacity-0'
+                      }`}
                       style={{ objectPosition: '50% 35%' }}
                       loading="eager"
                       decoding="async"
+                      onLoad={() => setImageLoaded(true)}
                     />
                   </div>
                   

@@ -83,28 +83,9 @@ body {
 /* ======================
    CUSTOM CURSORS (UNCHANGED)
    ====================== */
-html {
-  cursor: url('/cursors/default.ico') 0 0, auto;
-}
 
-* {
-  cursor: inherit;
-}
 
-a,
-button,
-[role="button"],
-input[type="submit"],
-input[type="button"],
-label,
-select,
-.cursor-pointer,
-.card-hover,
-.clickable,
-[onclick],
-a[href] {
-  cursor: url('/cursors/pointer.ico') 0 0, pointer !important;
-}
+
 
 /* Disable custom cursor on touch devices */
 @media (hover: none) {
@@ -335,3 +316,11 @@ a[href] {
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.skeleton-shimmer {
+  animation: shimmer 1.5s infinite;
+}
